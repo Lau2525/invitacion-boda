@@ -186,8 +186,8 @@
         /* ============================= */
 
         section {
-            padding-left: 2rem !important;
-            padding-right: 2rem !important;
+            padding-left: 1.25rem !important;
+            padding-right: 1.25rem !important;
         }
 
         @media (min-width: 768px) {
@@ -292,12 +292,12 @@
 
         @media (max-width: 480px) {
             .polaroid-photo {
-                width: 240px;
-                padding: 12px 12px 44px 12px;
+                width: 310px;
+                padding: 14px 14px 52px 14px;
             }
 
             .photo-deck-container {
-                height: 480px;
+                height: 540px;
             }
         }
 
@@ -520,10 +520,10 @@
 
         .flip-card {
             background-color: transparent;
-            width: 90%;
+            width: 95%;
             max-width: 380px;
-            height: 200px;
-            /* Reverted to user's preferred height */
+            height: 250px;
+            /* Increased height for mobile */
             perspective: 1000px;
             cursor: pointer;
             margin: 0 auto 2rem auto;
@@ -579,11 +579,11 @@
         }
 
         .flip-card-back p {
-            font-size: 11px;
-            /* Optimal size for 200px height */
-            line-height: 1.35 !important;
-            margin-bottom: 0.25rem;
-            letter-spacing: 0.01em;
+            font-size: 13px;
+            /* Optimal size for mobile */
+            line-height: 1.4 !important;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.012em;
         }
 
         .flip-card-back a {
@@ -969,13 +969,13 @@
                         Celebración</p>
                 </div>
             </section>
-            <section class="px-10 py-24 border-t border-bright-gold/10 mt-20 text-center">
-                <h3 class="text-2xl font-display italic mb-10" data-t="dress_code">Código de Vestimenta</h3>
+            <section class="px-5 py-24 border-t border-bright-gold/10 mt-20 text-center">
+                <h3 class="text-3xl font-display italic mb-10" data-t="dress_code">Código de Vestimenta</h3>
                 <div class="mb-6">
                     <span class="material-symbols-outlined text-4xl text-charcoal/20 font-extralight">apparel</span>
                 </div>
-                <p class="text-xl font-display mb-1" data-t="etiquette">Formal</p>
-                <p class="text-sm font-display italic text-deep-grey/80" data-t="dress_suggestion">
+                <p class="text-2xl font-display mb-2" data-t="etiquette">Formal</p>
+                <p class="text-base font-display italic text-deep-grey/80 leading-relaxed" data-t="dress_suggestion">
                     Sugerencia <br>
                     Hombres: Smoking <br> Mujeres:
                     Vestido
@@ -1296,7 +1296,7 @@
             <section class="px-10 pt-20 pb-16 border-t border-bright-gold/10 text-center">
                 <div class="text-center mb-10">
                     <h3 class="text-3xl font-display italic mb-2" data-t="rsvp_title">R.S.V.P.</h3>
-                    <p class="text-[10px] uppercase tracking-[0.3em] text-deep-grey font-medium" data-t="rsvp_deadline">
+                    <p class="text-sm uppercase tracking-[0.3em] text-deep-grey font-medium" data-t="rsvp_deadline">
                         Favor de
                         confirmar antes del 1
                         de Abril</p>
