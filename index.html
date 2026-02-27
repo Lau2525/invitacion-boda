@@ -737,7 +737,7 @@
             </div>
             <section class="px-10 text-center -mt-10 mb-16 relative z-20">
                 <div class="max-w-xs mx-auto">
-                    <p class="font-display italic text-charcoal/80 text-[1.35rem] leading-relaxed mb-4"
+                    <p class="font-display italic text-charcoal/80 text-3xl leading-relaxed mb-4 px-4"
                         data-t="biblical_quote">
                         "Así que no son ya más dos, sino una sola carne; por tanto, lo que Dios ha unido, que no lo
                         separe el hombre."
@@ -1799,7 +1799,7 @@
 
                 <div id="hotel-options" class="hidden space-y-6 border-t border-bright-gold/10 pt-8">
                     <div
-                        class="bg-bright-gold/5 border border-bright-gold/10 p-10 mx-6 rounded-2xl flex flex-col items-center text-center gap-4 mb-4">
+                        class="bg-bright-gold/5 border border-bright-gold/10 p-16 mx-6 rounded-2xl flex flex-col items-center text-center gap-4 mb-4">
                         <span class="material-symbols-outlined text-bright-gold/60 text-lg mt-0.5">info</span>
                         <p class="text-[15px] leading-relaxed text-charcoal/80 italic font-medium"
                             data-t="room_suggest">
@@ -2094,7 +2094,7 @@
             const submitBtn = document.getElementById('btn-submit');
 
             hotelMsg.classList.add('hidden');
-            hotelMsg.className = "p-10 mx-6 rounded-lg text-base leading-relaxed text-center hidden"; // Default classes including hidden
+            hotelMsg.className = "p-16 mx-6 rounded-lg text-base leading-relaxed text-center hidden"; // Default classes including hidden
 
             submitBtn.disabled = false;
             submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
@@ -2103,7 +2103,7 @@
 
             const showHotelErr = (msg) => {
                 hotelMsg.innerHTML = msg;
-                hotelMsg.className = "p-10 mx-6 bg-red-50 border border-red-200 rounded-lg text-base leading-relaxed text-red-800 font-bold text-center flex flex-col items-center gap-4";
+                hotelMsg.className = "p-16 mx-6 bg-red-50 border border-red-200 rounded-lg text-base leading-relaxed text-red-800 font-bold text-center flex flex-col items-center gap-4";
                 hotelMsg.classList.remove('hidden');
                 isValid = false;
             };
