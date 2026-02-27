@@ -163,7 +163,6 @@
             max-width: 420px;
             margin: 0 auto;
             padding-bottom: 140px;
-            transition: all 0.5s ease;
         }
 
         @media (min-width: 768px) {
@@ -762,7 +761,7 @@
                 </div>
             </section>
 
-            <section class="px-10 text-center space-y-12 mb-20">
+            <section class="px-16 text-center space-y-12 mb-20">
                 <div class="space-y-6">
                     <p class="intimate-dedication" data-t="intro_text">
                         Con inmensa gratitud elevamos nuestro corazón a Dios, quien en su infinito amor escribió nuestra
@@ -784,7 +783,7 @@
                     </p>
                 </div>
 
-                <section class="px-10 text-center space-y-12">
+                <section class="px-16 text-center space-y-12">
 
                     <div class="space-y-8 pt-8">
                         <h3 class="text-2xl font-display italic text-charcoal" data-t="parents_title">Nuestros Padres
@@ -1723,7 +1722,7 @@
 
         <!-- Modal Content -->
         <div id="modal-container"
-            class="absolute bottom-0 left-0 w-full bg-white rounded-t-[40px] shadow-[0_-20px_60px_rgba(0,0,0,0.1)] p-10 transform translate-y-full transition-transform duration-500 ease-out sm:relative sm:bottom-auto sm:left-auto sm:max-w-[450px] sm:mx-auto sm:mt-[10vh] sm:rounded-[30px] overflow-y-auto max-h-[90vh] custom-scrollbar">
+            class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white rounded-t-[40px] shadow-[0_-20px_60px_rgba(0,0,0,0.1)] p-8 sm:p-10 transform translate-y-full transition-transform duration-500 ease-out sm:top-1/2 sm:bottom-auto sm:-translate-y-1/2 sm:rounded-[30px] overflow-y-auto max-h-[95vh] custom-scrollbar">
 
             <!-- Close Button -->
             <button id="close-modal"
@@ -1734,7 +1733,7 @@
             <!-- Step 1: Guest Count -->
             <div id="step-1" class="space-y-8">
                 <div id="global-err-msg"
-                    class="hidden p-5 bg-orange-50 border border-orange-200 rounded-lg text-sm leading-relaxed text-orange-800 text-center font-medium">
+                    class="hidden p-6 bg-orange-50 border border-orange-200 rounded-lg text-base leading-relaxed text-orange-800 text-center font-bold">
                 </div>
                 <div class="text-center space-y-2">
                     <h3 class="font-display italic text-3xl text-charcoal" data-t="guest_count_title">¿Cuántos invitados
@@ -1785,16 +1784,16 @@
                         </p>
                     </div>
                     <button id="btn-back-to-step1"
-                        class="block mx-auto text-xs font-bold uppercase tracking-widest text-bright-gold underline mt-2"
+                        class="block mx-auto text-sm font-black uppercase tracking-[0.2em] text-bright-gold underline mt-4 mb-2"
                         data-t="modify_guest_count">Modificar número de invitados</button>
                 </div>
 
                 <div class="flex gap-4">
                     <button id="hotel-yes-btn"
-                        class="flex-1 py-4 border border-bright-gold/20 font-sans text-[10px] uppercase tracking-widest text-charcoal/60"
+                        class="flex-1 py-6 border border-bright-gold/20 rounded-xl font-sans text-xs font-bold uppercase tracking-widest text-charcoal/60 transition-all active:scale-95"
                         data-t="hotel_yes">Sí</button>
                     <button id="hotel-no-btn"
-                        class="flex-1 py-4 border border-bright-gold/20 font-sans text-[10px] uppercase tracking-widest text-charcoal/60"
+                        class="flex-1 py-6 border border-bright-gold/20 rounded-xl font-sans text-xs font-bold uppercase tracking-widest text-charcoal/60 transition-all active:scale-95"
                         data-t="hotel_no">No</button>
                 </div>
 
@@ -1945,14 +1944,14 @@
 
             setTimeout(() => {
                 modalBackdrop.style.opacity = '1';
-                modalContainer.style.transform = window.innerWidth < 640 ? 'translateY(0)' : 'translateY(0)';
+                modalContainer.style.transform = window.innerWidth < 640 ? 'translateX(-50%) translateY(0)' : 'translateX(-50%) translateY(-50%)';
             }, 10);
             resetSteps();
         }
 
         function closeModal() {
             modalBackdrop.style.opacity = '0';
-            modalContainer.style.transform = window.innerWidth < 640 ? 'translateY(100%)' : 'translateY(50px)';
+            modalContainer.style.transform = window.innerWidth < 640 ? 'translateX(-50%) translateY(100%)' : 'translateX(-50%) translateY(-40%)';
             setTimeout(() => {
                 rsvpModal.classList.add('hidden');
                 document.body.style.overflow = '';
@@ -2052,17 +2051,24 @@
 
         hotelYes.addEventListener('click', () => {
             isBooking = true;
-            hotelYes.classList.add('bg-bright-gold', 'text-white');
-            hotelNo.classList.remove('bg-bright-gold', 'text-white');
+            hotelYes.classList.add('bg-bright-gold', 'text-white', 'shadow-md');
+            hotelNo.classList.remove('bg-bright-gold', 'text-white', 'shadow-md');
             hotelOptions.classList.remove('hidden');
             calculateTotal();
         });
 
         hotelNo.addEventListener('click', () => {
             isBooking = false;
-            hotelNo.classList.add('bg-bright-gold', 'text-white');
-            hotelYes.classList.remove('bg-bright-gold', 'text-white');
+            hotelNo.classList.add('bg-bright-gold', 'text-white', 'shadow-md');
+            hotelYes.classList.remove('bg-bright-gold', 'text-white', 'shadow-md');
             hotelOptions.classList.add('hidden');
+
+            // Fix: Clear errors and enable submit when selecting NO
+            const hotelMsg = document.getElementById('hotel-v-msg');
+            const submitBtn = document.getElementById('btn-submit');
+            hotelMsg.classList.add('hidden');
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
         });
 
         const roomInput = document.getElementById('room-count');
@@ -2088,7 +2094,7 @@
             const submitBtn = document.getElementById('btn-submit');
 
             hotelMsg.classList.add('hidden');
-            hotelMsg.className = "p-5 rounded-lg text-sm leading-relaxed hidden"; // Default classes including hidden
+            hotelMsg.className = "p-6 rounded-lg text-base leading-relaxed hidden"; // Default classes including hidden
 
             submitBtn.disabled = false;
             submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
@@ -2097,7 +2103,7 @@
 
             const showHotelErr = (msg) => {
                 hotelMsg.innerHTML = msg;
-                hotelMsg.className = "p-5 bg-red-50 border border-red-200 rounded-lg text-sm leading-relaxed text-red-800 font-medium";
+                hotelMsg.className = "p-6 bg-red-50 border border-red-200 rounded-lg text-base leading-relaxed text-red-800 font-bold";
                 hotelMsg.classList.remove('hidden');
                 isValid = false;
             };
