@@ -197,7 +197,7 @@
         /* ============================= */
 
         body {
-            background-color: #ffffff;
+            background-color: #fcfaf2;
             font-family: "Cormorant Garamond", serif;
             min-height: 100dvh;
             scroll-behavior: smooth;
@@ -212,10 +212,10 @@
             background-image: url("img/fondo flores.jpg");
             background-size: 800px;
             background-repeat: repeat;
-            opacity: 0.12;
+            opacity: 0.15;
             pointer-events: none;
             z-index: -1;
-            filter: grayscale(100%) brightness(1.1) contrast(0.9);
+            filter: sepia(25%) brightness(1.1) contrast(0.9);
         }
 
         .content-container {
@@ -854,6 +854,8 @@
                 </div>
             </div>
         </section>
+
+        <!---
         <section class="mb-12 px-4 relative overflow-visible">
             <div class="photo-deck-container" id="photoDeck">
 
@@ -903,6 +905,7 @@
                 </div>
             </div>
         </section>
+        --->
 
         <section class="px-10 mt-32 space-y-24">
             <div class="text-center space-y-4">
@@ -1303,6 +1306,10 @@
             <img src="img/civil_2.jpg" alt="Civil Wedding 2" class="w-full object-cover !rounded-none">
             <img src="img/civil_3.jpg" alt="Civil Wedding 3" class="w-full object-cover !rounded-none">
             <img src="img/civil_4.jpg" alt="Civil Wedding 4" class="w-full object-cover !rounded-none">
+            <video autoplay muted loop playsinline webkit-playsinline preload="auto" disablePictureInPicture
+                class="w-full object-cover !rounded-none min-h-[400px] bg-charcoal/5">
+                <source src="img/video_beso.mp4" type="video/mp4">
+            </video>
         </div>
 
         <!-- Final Biblical Quote integrated in Main -->
