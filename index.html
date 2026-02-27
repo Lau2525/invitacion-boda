@@ -21,9 +21,9 @@
                 extend: {
                     colors: {
                         "pure-white": "#ffffff",
-                        "charcoal": "#333333",
-                        "deep-grey": "#444444",
-                        "bright-gold": "#7a5a3a",
+                        "charcoal": "#1a1a1a",
+                        "deep-grey": "#2d2d2d",
+                        "bright-gold": "#63462d",
                         "soft-gold": "#f4eedc",
                     },
                     fontFamily: {
@@ -42,7 +42,7 @@
         /* ============================= */
 
         body {
-            background-color: #faf9f6;
+            background-color: #fdfcfb;
             font-family: "Cormorant Garamond", serif;
             min-height: 100dvh;
             scroll-behavior: smooth;
@@ -84,7 +84,6 @@
                 linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
                 url("https://www.transparenttextures.com/patterns/recycled-paper-texture.png");
             background-color: #fefefe;
-            box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.05);
             background-repeat: repeat;
             filter: contrast(1.1) brightness(1.0);
         }
@@ -174,9 +173,6 @@
         @media (min-width: 1280px) {
             main {
                 max-width: 820px;
-                box-shadow: 0 40px 100px rgba(0, 0, 0, 0.04);
-                border-radius: 4px;
-                border: 1px solid rgba(197, 168, 128, 0.15);
             }
         }
 
@@ -200,32 +196,31 @@
         /* FLORAL BACKGROUND */
         /* ============================= */
 
-        .floral-texture-bg {
-            background-color: #faf9f6;
+        body {
+            background-color: #ffffff;
+            font-family: "Cormorant Garamond", serif;
+            min-height: 100dvh;
+            scroll-behavior: smooth;
+            color: #333333;
             position: relative;
         }
 
-        .floral-texture-bg::before {
+        body::before {
             content: "";
-            position: absolute;
+            position: fixed;
             inset: 0;
             background-image: url("img/fondo flores.jpg");
             background-size: 800px;
             background-repeat: repeat;
-            opacity: 0.15;
+            opacity: 0.12;
             pointer-events: none;
-            z-index: 0;
-            mix-blend-mode: multiply;
-            filter: sepia(100%) hue-rotate(10deg) saturate(200%);
+            z-index: -1;
+            filter: grayscale(100%) brightness(1.1) contrast(0.9);
         }
 
         .content-container {
             position: relative;
             z-index: 10;
-            background: rgba(250, 249, 246, 0.85);
-            backdrop-filter: blur(8px);
-            border-left: 1px solid rgba(174, 145, 108, 0.1);
-            border-right: 1px solid rgba(174, 145, 108, 0.1);
         }
 
         /* ============================= */
@@ -729,590 +724,602 @@
             style="animation-duration: 18s; animation-delay: 7s; background: linear-gradient(135deg, #fff 0%, #fff0f0 100%); border-radius: 90% 10% 90% 20% / 100% 20% 90% 10%;">
         </div>
     </div>
-    <div class="min-h-screen flex flex-col items-center floral-texture-bg">
-        <main class="w-full max-w-md content-container min-h-screen pb-32 shadow-2xl">
-            <div class="relative w-full aspect-[4/6] overflow-hidden">
-                <img alt="Wedding rings on cushion" class="w-full h-full object-cover hero-feather-mask"
-                    style="object-position: 60% 40%;" src="img/anillos.png" />
+    <main class="w-full max-w-md content-container min-h-screen pb-32">
+        <div class="relative w-full aspect-[4/6] overflow-hidden">
+            <img alt="Wedding rings on cushion" class="w-full h-full object-cover hero-feather-mask"
+                style="object-position: 60% 40%;" src="img/anillos.png" />
+        </div>
+        <section class="px-10 text-center -mt-10 mb-16 relative z-20">
+            <div class="max-w-xs mx-auto">
+                <p class="font-display italic text-charcoal text-[1.35rem] leading-relaxed mb-4 px-4"
+                    data-t="biblical_quote">
+                    "Así que no son ya más dos, sino una sola carne; por tanto, lo que Dios ha unido, que no lo
+                    separe el hombre."
+                </p>
+                <div class="flex items-center justify-center gap-3 my-6">
+                    <div class="h-[0.5px] w-8 bg-bright-gold/40"></div>
+                    <div class="w-1.5 h-1.5 rotate-45 border border-bright-gold/60"></div>
+                    <div class="h-[0.5px] w-8 bg-bright-gold/40"></div>
+                </div>
+                <p class="font-sans text-[10px] uppercase tracking-[0.5em] text-deep-grey" data-t="biblical_ref">
+                    Mateo 19:6</p>
             </div>
-            <section class="px-10 text-center -mt-10 mb-16 relative z-20">
-                <div class="max-w-xs mx-auto">
-                    <p class="font-display italic text-charcoal/80 text-[1.35rem] leading-relaxed mb-4 px-4"
-                        data-t="biblical_quote">
-                        "Así que no son ya más dos, sino una sola carne; por tanto, lo que Dios ha unido, que no lo
-                        separe el hombre."
-                    </p>
-                    <div class="flex items-center justify-center gap-3 my-6">
-                        <div class="h-[0.5px] w-8 bg-bright-gold/40"></div>
-                        <div class="w-1.5 h-1.5 rotate-45 border border-bright-gold/60"></div>
-                        <div class="h-[0.5px] w-8 bg-bright-gold/40"></div>
-                    </div>
-                    <p class="font-sans text-[10px] uppercase tracking-[0.5em] text-deep-grey" data-t="biblical_ref">
-                        Mateo 19:6</p>
-                </div>
-            </section>
+        </section>
 
-            <section class="text-center mb-12 px-6">
-                <p class="font-sans text-[10px] uppercase tracking-[0.7em] text-bright-gold mb-6"
-                    data-t="joining_lives">Uniendo nuestras vidas
+        <section class="text-center mb-12 px-6">
+            <p class="font-sans text-[10px] uppercase tracking-[0.7em] text-bright-gold mb-6" data-t="joining_lives">
+                Uniendo nuestras vidas
+            </p>
+            <div class="flex justify-center py-6">
+                <img src="img/goldletters.png" alt="Laura & Marcus" class="max-w-[220px] md:max-w-[320px] h-auto" />
+            </div>
+        </section>
+
+        <section class="px-14 text-center space-y-12 mb-20">
+            <div class="space-y-6">
+                <p class="intimate-dedication" data-t="intro_text">
+                    Con inmensa gratitud elevamos nuestro corazón a Dios, quien en su infinito amor escribió nuestra
+                    historia, nos tomó de la mano y nos guió hasta este momento en el que unimos nuestras vidas bajo
+                    su bendición.
                 </p>
-                <div class="flex justify-center py-6">
-                    <img src="img/goldletters.png" alt="Laura & Marcus" class="max-w-[220px] md:max-w-[320px] h-auto" />
-                </div>
-            </section>
+                <p class="intimate-dedication" data-t="gratitude_parents">
+                    Agradecemos a nuestros padres, quienes con su ejemplo y amor incondicional nos
+                    enseñaron el verdadero significado del compromiso y la fe. Gracias por sus oraciones y por
+                    acompañarnos con amor hasta este día tan
+                    sagrado.
+                </p>
+                <p class="intimate-dedication" data-t="love_roots">
+                    Si hoy podemos unir nuestras vidas, es porque ustedes nos enseñaron primero a amar.
+                </p>
+                <p class="intimate-dedication" data-t="new_stage">
+                    Hoy comenzamos esta nueva etapa con la certeza de que el amor que nos une es un regalo divino, y
+                    que llevamos en el corazón las raíces firmes que ustedes sembraron en nosotros.
+                </p>
+            </div>
 
-            <section class="px-14 text-center space-y-12 mb-20">
-                <div class="space-y-6">
-                    <p class="intimate-dedication" data-t="intro_text">
-                        Con inmensa gratitud elevamos nuestro corazón a Dios, quien en su infinito amor escribió nuestra
-                        historia, nos tomó de la mano y nos guió hasta este momento en el que unimos nuestras vidas bajo
-                        su bendición.
-                    </p>
-                    <p class="intimate-dedication" data-t="gratitude_parents">
-                        Agradecemos a nuestros padres, quienes con su ejemplo y amor incondicional nos
-                        enseñaron el verdadero significado del compromiso y la fe. Gracias por sus oraciones y por
-                        acompañarnos con amor hasta este día tan
-                        sagrado.
-                    </p>
-                    <p class="intimate-dedication" data-t="love_roots">
-                        Si hoy podemos unir nuestras vidas, es porque ustedes nos enseñaron primero a amar.
-                    </p>
-                    <p class="intimate-dedication" data-t="new_stage">
-                        Hoy comenzamos esta nueva etapa con la certeza de que el amor que nos une es un regalo divino, y
-                        que llevamos en el corazón las raíces firmes que ustedes sembraron en nosotros.
-                    </p>
-                </div>
+            <div class="px-6 text-center space-y-12">
 
-                <div class="px-6 text-center space-y-12">
-
-                    <div class="space-y-8 pt-8">
-                        <h3 class="text-2xl font-display italic text-charcoal" data-t="parents_title">Nuestros Padres
-                        </h3>
-                        <div class="grid grid-cols-1 gap-10">
-                            <div class="space-y-1">
-                                <p class="font-sans text-[9px] uppercase tracking-[0.3em] text-bright-gold mb-2"
-                                    data-t="bride_parents">
-                                    Padres
-                                    de la Novia</p>
-                                <p class="text-lg font-display">Amada Galeana Rodríguez</p>
-                                <p class="text-lg font-display">Pablo Castillo García</p>
-                            </div>
-                            <div class="space-y-1">
-                                <p class="font-sans text-[9px] uppercase tracking-[0.3em] text-bright-gold mb-2"
-                                    data-t="groom_parents">
-                                    Padres
-                                    del Novio</p>
-                                <p class="text-lg font-display">Maurena Faye McCauley</p>
-                                <p class="text-lg font-display">Morris Desmond Ramsey III</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="space-y-8 pt-8 px-6">
-                    <p class="intimate-dedication mb-6" data-t="godparents_intro">
-                        A nuestros padrinos, gracias por ser testigos de nuestro amor y guiarnos con su ejemplo, por
-                        sostenernos con sus oraciones y caminar a nuestro lado en este compromiso que hoy consagramos
-                        ante Dios.
-                    </p>
-                    <p class="intimate-dedication mb-6" data-t="godparents_honor">
-                        Gracias por aceptar este lugar tan especial en nuestras vidas.
-                    </p>
-                    <h3 class="text-2xl font-display italic text-charcoal" data-t="godparents_title">Nuestros Padrinos
+                <div class="space-y-8 pt-8">
+                    <h3 class="text-2xl font-display italic text-charcoal" data-t="parents_title">Nuestros Padres
                     </h3>
+                    <div class="grid grid-cols-1 gap-10">
+                        <div class="space-y-1">
+                            <p class="font-sans text-[9px] uppercase tracking-[0.3em] text-bright-gold mb-2"
+                                data-t="bride_parents">
+                                Padres
+                                de la Novia</p>
+                            <p class="text-lg font-display">Amada Galeana Rodríguez</p>
+                            <p class="text-lg font-display">Pablo Castillo García</p>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="font-sans text-[9px] uppercase tracking-[0.3em] text-bright-gold mb-2"
+                                data-t="groom_parents">
+                                Padres
+                                del Novio</p>
+                            <p class="text-lg font-display">Maurena Faye McCauley</p>
+                            <p class="text-lg font-display">Morris Desmond Ramsey III</p>
+                        </div>
+                    </div>
+                </div>
 
-                    <div class="space-y-1">
-                        <p class="text-lg font-display">Leticia Rodríguez Flores</p>
-                        <p class="text-lg font-display">Luis Alberto Galeana Rodríguez</p>
-                    </div>
-                </div>
-                <div class="flex items-center justify-center gap-3 py-10">
-                    <div class="h-[0.5px] w-10 bg-bright-gold/30"></div>
-                    <div class="w-1.5 h-1.5 rotate-45 border border-bright-gold/40"></div>
-                    <div class="h-[0.5px] w-10 bg-bright-gold/30"></div>
-                </div>
-            </section>
+            </div>
 
-
-
-            <section class="px-10 mb-20">
-                <div class="countdown-line py-8 flex justify-around items-center">
-                    <div class="text-center">
-                        <span id="countdown-days" class="block text-2xl font-light font-display">00</span>
-                        <span class="block font-sans text-[8px] uppercase tracking-widest text-deep-grey/50"
-                            data-t="days">Días</span>
-                    </div>
-                    <div class="text-center">
-                        <span id="countdown-hours" class="block text-2xl font-light font-display">00</span>
-                        <span class="block font-sans text-[8px] uppercase tracking-widest text-deep-grey/50"
-                            data-t="hours">Hrs</span>
-                    </div>
-                    <div class="text-center">
-                        <span id="countdown-minutes" class="block text-2xl font-light font-display">00</span>
-                        <span class="block font-sans text-[8px] uppercase tracking-widest text-deep-grey/50"
-                            data-t="minutes">Min</span>
-                    </div>
-                    <div class="text-center">
-                        <span id="countdown-seconds" class="block text-2xl font-light font-display">00</span>
-                        <span class="block font-sans text-[8px] uppercase tracking-widest text-deep-grey/80"
-                            data-t="seconds">Seg</span>
-                    </div>
-                </div>
-            </section>
-            <section class="mb-24 px-4 relative overflow-visible">
-                <div class="photo-deck-container" id="photoDeck">
-
-                    <div class="polaroid-photo photo-3">
-                        <img alt="Couple moments 3" class="w-full aspect-square object-cover" src="img/brindis.webp" />
-                    </div>
-                    <div class="polaroid-photo photo-2">
-                        <img alt="Couple moments 2" class="w-full aspect-square object-cover" src="img/love07.jpg" />
-                    </div>
-                    <div class="polaroid-photo photo-1">
-                        <img alt="Couple moments 1" class="w-full aspect-square object-cover mb-2"
-                            src="img/love06.jpg" />
-                        <p class="font-display italic text-lg text-center text-charcoal/80 mt-4 tracking-wide leading-relaxed px-4"
-                            data-t="love_history">
-                            Nuestra historia de amor</p>
-                    </div>
-                    <div
-                        class="absolute top-1/2 -left-6 transform -translate-y-1/2 flex items-center pointer-events-none opacity-20">
-                        <span
-                            class="material-symbols-outlined text-4xl font-extralight text-bright-gold">chevron_left</span>
-                    </div>
-                    <div
-                        class="absolute top-1/2 -right-6 transform -translate-y-1/2 flex items-center pointer-events-none floating-arrow-right">
-                        <span
-                            class="material-symbols-outlined text-4xl font-extralight text-bright-gold">chevron_right</span>
-                    </div>
-                </div>
-                <div class="flex flex-col items-center gap-3 mt-8">
-                    <div class="flex items-center gap-4 text-bright-gold/80">
-                        <span class="material-symbols-outlined text-xl animate-indicator">swipe_right</span>
-                        <p class="font-sans text-[9px] uppercase tracking-[0.4em] font-medium" data-t="swipe_more">
-                            Desliza para ver más</p>
-                    </div>
-                    <div class="flex items-center gap-2 mt-1">
-                        <span id="photo-counter"
-                            class="font-sans text-[10px] tracking-[0.2em] text-bright-gold/70 font-medium">1 /
-                            3</span>
-                    </div>
-                    <div id="photo-dots" class="flex gap-1.5 mt-1">
-                        <div class="w-1.5 h-1.5 rounded-full bg-bright-gold"></div>
-                        <div class="w-1.5 h-1.5 rounded-full bg-bright-gold/20"></div>
-                        <div class="w-1.5 h-1.5 rounded-full bg-bright-gold/20"></div>
-                    </div>
-                    <div class="flex items-center justify-center gap-2 mt-4">
-                        <div class="h-[0.5px] w-12 bg-gradient-to-r from-transparent to-bright-gold/20"></div>
-                        <div class="w-1 h-1 rotate-45 bg-bright-gold/30"></div>
-                        <div class="h-[0.5px] w-12 bg-gradient-to-l from-transparent to-bright-gold/20"></div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="px-10 mt-32 space-y-24">
-                <div class="text-center space-y-4">
-                    <span
-                        class="material-symbols-outlined text-bright-gold/60 text-3xl font-light">calendar_today</span>
-                    <h2 class="text-2xl font-display font-medium" data-t="saturday">Sábado, 09 de Mayo 2026
-                    </h2>
-                    <p class="text-3xl font-display italic text-charcoal">1:00 PM</p>
-                </div>
-                <div class="text-center space-y-6">
-                    <div class="space-y-2">
-                        <h3 class="text-2xl font-display italic" data-t="religious_ceremony">Ceremonia
-                            Religiosa</h3>
-                        <p class="text-lg font-display text-deep-grey" data-t="cathedral_name">Catedral de
-                            Cuernavaca
-                        </p>
-                        <p class="text-lg font-display text-deep-grey" data-t="cathedral_dedication">
-                            "Nuestra Señora de
-                            la Asunción"</p>
-                        <p class="text-[10px] uppercase tracking-widest text-charcoal/80">Miguel Hidalgo 17,
-                            Cuernavaca
-                            Centro, Centro, 62000 Cuernavaca, Mor., México</p>
-                    </div>
-                    <div class="border-[0.5px] border-bright-gold/20 p-1 bg-white">
-                        <img alt="Cathedral" class="w-full aspect-[3/4] object-cover" src="img/catedral.jpg" />
-                    </div>
-                    <a href="https://maps.app.goo.gl/BZAtB4zpGZLQbckc8" target="_blank"
-                        class="inline-flex items-center gap-2 mt-2 font-sans text-[8px] uppercase tracking-[0.4em] text-bright-gold/90 hover:text-bright-gold transition-colors"
-                        data-t="location_button">
-                        <span class="material-symbols-outlined text-xs">location_on</span>
-                        Ver ubicación
-                    </a>
-                </div>
-                <div class="text-center space-y-6">
-                    <div class="space-y-2">
-                        <h3 class="text-2xl font-display italic" data-t="reception">La Recepción</h3>
-                        <p class="text-lg font-display text-deep-grey" data-t="reception_place">Hotel
-                            Boutique Casa de
-                            Campo</p>
-                        <p class="text-[10px] uppercase tracking-widest text-charcoal/80">Mariano Abasolo
-                            101,
-                            Cuernavaca Centro, Centro, 62000 Cuernavaca, Mor., México</p>
-                    </div>
-                    <div class="border-[0.5px] border-bright-gold/20 p-1 bg-white">
-                        <img alt="Reception" class="w-full aspect-[4/3] object-cover" src="img/casadecampo.jpg" />
-                    </div>
-                    <a href="https://maps.app.goo.gl/W7pVbmNp5QnXdDys7" target="_blank"
-                        class="inline-flex items-center gap-2 mt-2 font-sans text-[8px] uppercase tracking-[0.4em] text-bright-gold/90 hover:text-bright-gold transition-colors"
-                        data-t="location_button">
-                        <span class="material-symbols-outlined text-xs">location_on</span>
-                        Ver ubicación
-                    </a>
-                    <p class="font-sans text-[9px] uppercase tracking-[0.5em] text-bright-gold pt-4"
-                        data-t="banquet_label">
-                        Banquete &amp;
-                        Celebración</p>
-                </div>
-            </section>
-            <section class="px-5 py-24 border-t border-bright-gold/10 mt-20 text-center">
-                <h3 class="text-3xl font-display italic mb-10" data-t="dress_code">Código de Vestimenta</h3>
-                <div class="mb-6">
-                    <span class="material-symbols-outlined text-4xl text-charcoal/20 font-extralight">apparel</span>
-                </div>
-                <p class="text-2xl font-display mb-2" data-t="etiquette">Formal</p>
-                <p class="text-base font-display italic text-deep-grey/80 leading-relaxed" data-t="dress_suggestion">
-                    Sugerencia <br>
-                    Hombres: Smoking <br> Mujeres:
-                    Vestido
-                    Largo</p>
-            </section>
-            <section class="px-10 py-24 border-t border-bright-gold/10 text-center">
-                <h3 class="text-2xl font-display italic mb-8" data-t="wedding_gift">Regalo de Bodas</h3>
-                <p class="font-display italic text-lg text-deep-grey/90 leading-relaxed mb-12" data-t="gift_text">
-                    Su presencia es nuestro mejor regalo, pero si quieren tener un detalle con nosotros les
-                    damos
-                    algunas
-                    ideas.
+            <div class="space-y-8 pt-8 px-6">
+                <p class="intimate-dedication mb-6" data-t="godparents_intro">
+                    A nuestros padrinos, gracias por ser testigos de nuestro amor y guiarnos con su ejemplo, por
+                    sostenernos con sus oraciones y caminar a nuestro lado en este compromiso que hoy consagramos
+                    ante Dios.
                 </p>
-                <div class="max-w-[320px] mx-auto space-y-16">
-                    <!-- Bank Account Card -->
-                    <div
-                        class="bg-white shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-bright-gold/10 text-left relative group overflow-hidden">
-                        <button
-                            class="accordion-toggle w-full p-10 flex items-center gap-3 text-charcoal hover:bg-black/[0.01] transition-colors focus:outline-none">
-                            <span
-                                class="material-symbols-outlined text-sm transition-transform duration-300">expand_more</span>
-                            <span class="intimate-dedication !text-2xl !leading-none text-charcoal"
-                                data-t="view_account">Ver
-                                número de cuenta</span>
-                        </button>
-                        <div
-                            class="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out px-10">
-                            <div class="pb-10 space-y-3 text-charcoal/90 border-t border-bright-gold/5 pt-6">
-                                <p class="font-display text-xl leading-tight">Banorte</p>
-                                <p class="font-display text-xl leading-tight tracking-[0.05em]">0725 4001 3532 0270 78
-                                </p>
-                                <p class="font-display text-xl leading-tight">Laura Isela Castillo Galeana</p>
-                            </div>
-                        </div>
-                    </div>
+                <p class="intimate-dedication mb-6" data-t="godparents_honor">
+                    Gracias por aceptar este lugar tan especial en nuestras vidas.
+                </p>
+                <h3 class="text-2xl font-display italic text-charcoal" data-t="godparents_title">Nuestros Padrinos
+                </h3>
 
-                    <!-- Caja de sobres -->
-                    <div class="flex flex-col items-center space-y-4">
-                        <span class="material-symbols-outlined text-5xl text-charcoal/80">mail</span>
-                        <p class="intimate-dedication !text-2xl !leading-none text-charcoal/80" data-t="envelope_box">
-                            Caja de sobres</p>
-                    </div>
+                <div class="space-y-1">
+                    <p class="text-lg font-display">Leticia Rodríguez Flores</p>
+                    <p class="text-lg font-display">Luis Alberto Galeana Rodríguez</p>
                 </div>
-            </section>
+            </div>
+            <div class="flex items-center justify-center gap-3 py-4">
+                <div class="h-[0.5px] w-10 bg-bright-gold/30"></div>
+                <div class="w-1.5 h-1.5 rotate-45 border border-bright-gold/40"></div>
+                <div class="h-[0.5px] w-10 bg-bright-gold/30"></div>
+            </div>
+        </section>
 
-            <section class="px-10 py-24 border-t border-bright-gold/10 text-center bg-white/40">
-                <h3 class="text-2xl font-display italic mb-12" data-t="suggestions_title">Sugerencias</h3>
 
-                <div class="max-w-[320px] mx-auto space-y-6">
-                    <!-- Lodging -->
+
+        <section class="px-10 mb-10">
+            <div class="countdown-line py-4 flex justify-around items-center">
+                <div class="text-center">
+                    <span id="countdown-days" class="block text-2xl font-light font-display">00</span>
+                    <span class="block font-sans text-[8px] uppercase tracking-widest text-deep-grey/80"
+                        data-t="days">Días</span>
+                </div>
+                <div class="text-center">
+                    <span id="countdown-hours" class="block text-2xl font-light font-display">00</span>
+                    <span class="block font-sans text-[8px] uppercase tracking-widest text-deep-grey/80"
+                        data-t="hours">Hrs</span>
+                </div>
+                <div class="text-center">
+                    <span id="countdown-minutes" class="block text-2xl font-light font-display">00</span>
+                    <span class="block font-sans text-[8px] uppercase tracking-widest text-deep-grey/80"
+                        data-t="minutes">Min</span>
+                </div>
+                <div class="text-center">
+                    <span id="countdown-seconds" class="block text-2xl font-light font-display">00</span>
+                    <span class="block font-sans text-[8px] uppercase tracking-widest text-deep-grey/80"
+                        data-t="seconds">Seg</span>
+                </div>
+            </div>
+        </section>
+        <section class="mb-12 px-4 relative overflow-visible">
+            <div class="photo-deck-container" id="photoDeck">
+
+                <div class="polaroid-photo photo-3">
+                    <img alt="Couple moments 3" class="w-full aspect-square object-cover" src="img/brindis.webp" />
+                </div>
+                <div class="polaroid-photo photo-2">
+                    <img alt="Couple moments 2" class="w-full aspect-square object-cover" src="img/love07.jpg" />
+                </div>
+                <div class="polaroid-photo photo-1">
+                    <img alt="Couple moments 1" class="w-full aspect-square object-cover mb-2" src="img/love06.jpg" />
+                    <p class="font-display italic text-lg text-center text-charcoal/80 mt-4 tracking-wide leading-relaxed px-4"
+                        data-t="love_history">
+                        Nuestra historia de amor</p>
+                </div>
+                <div
+                    class="absolute top-1/2 -left-6 transform -translate-y-1/2 flex items-center pointer-events-none opacity-20">
+                    <span
+                        class="material-symbols-outlined text-4xl font-extralight text-bright-gold">chevron_left</span>
+                </div>
+                <div
+                    class="absolute top-1/2 -right-6 transform -translate-y-1/2 flex items-center pointer-events-none floating-arrow-right">
+                    <span
+                        class="material-symbols-outlined text-4xl font-extralight text-bright-gold">chevron_right</span>
+                </div>
+            </div>
+            <div class="flex flex-col items-center gap-3 mt-8">
+                <div class="flex items-center gap-4 text-bright-gold/80">
+                    <span class="material-symbols-outlined text-xl animate-indicator">swipe_right</span>
+                    <p class="font-sans text-[9px] uppercase tracking-[0.4em] font-medium" data-t="swipe_more">
+                        Desliza para ver más</p>
+                </div>
+                <div class="flex items-center gap-2 mt-1">
+                    <span id="photo-counter"
+                        class="font-sans text-[10px] tracking-[0.2em] text-bright-gold/70 font-medium">1 /
+                        3</span>
+                </div>
+                <div id="photo-dots" class="flex gap-1.5 mt-1">
+                    <div class="w-1.5 h-1.5 rounded-full bg-bright-gold"></div>
+                    <div class="w-1.5 h-1.5 rounded-full bg-bright-gold/20"></div>
+                    <div class="w-1.5 h-1.5 rounded-full bg-bright-gold/20"></div>
+                </div>
+                <div class="flex items-center justify-center gap-2 mt-4">
+                    <div class="h-[0.5px] w-12 bg-gradient-to-r from-transparent to-bright-gold/20"></div>
+                    <div class="w-1 h-1 rotate-45 bg-bright-gold/30"></div>
+                    <div class="h-[0.5px] w-12 bg-gradient-to-l from-transparent to-bright-gold/20"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="px-10 mt-32 space-y-24">
+            <div class="text-center space-y-4">
+                <span class="material-symbols-outlined text-bright-gold/60 text-3xl font-light">calendar_today</span>
+                <h2 class="text-2xl font-display font-medium" data-t="saturday">Sábado, 09 de Mayo 2026
+                </h2>
+                <p class="text-3xl font-display italic text-charcoal">1:00 PM</p>
+            </div>
+            <div class="text-center space-y-6">
+                <div class="space-y-2">
+                    <h3 class="text-2xl font-display italic" data-t="religious_ceremony">Ceremonia
+                        Religiosa</h3>
+                    <p class="text-lg font-display text-deep-grey" data-t="cathedral_name">Catedral de
+                        Cuernavaca
+                    </p>
+                    <p class="text-lg font-display text-deep-grey" data-t="cathedral_dedication">
+                        "Nuestra Señora de
+                        la Asunción"</p>
+                    <p class="text-[10px] uppercase tracking-widest text-charcoal/80">Miguel Hidalgo 17,
+                        Cuernavaca
+                        Centro, Centro, 62000 Cuernavaca, Mor., México</p>
+                </div>
+                <div class="border-[0.5px] border-bright-gold/20 p-1">
+                    <img alt="Cathedral" class="w-full aspect-[3/4] object-cover" src="img/catedral.jpg" />
+                </div>
+                <a href="https://maps.app.goo.gl/BZAtB4zpGZLQbckc8" target="_blank"
+                    class="inline-flex items-center gap-2 mt-2 font-sans text-[8px] uppercase tracking-[0.4em] text-bright-gold hover:text-bright-gold transition-colors"
+                    data-t="location_button">
+                    <span class="material-symbols-outlined text-xs">location_on</span>
+                    Ver ubicación
+                </a>
+            </div>
+            <div class="text-center space-y-6">
+                <div class="space-y-2">
+                    <h3 class="text-2xl font-display italic" data-t="reception">La Recepción</h3>
+                    <p class="text-lg font-display text-deep-grey" data-t="reception_place">Hotel
+                        Boutique Casa de
+                        Campo</p>
+                    <p class="text-[10px] uppercase tracking-widest text-charcoal/80">Mariano Abasolo
+                        101,
+                        Cuernavaca Centro, Centro, 62000 Cuernavaca, Mor., México</p>
+                </div>
+                <div class="border-[0.5px] border-bright-gold/20 p-1">
+                    <img alt="Reception" class="w-full aspect-[4/3] object-cover" src="img/casadecampo.jpg" />
+                </div>
+                <a href="https://maps.app.goo.gl/W7pVbmNp5QnXdDys7" target="_blank"
+                    class="inline-flex items-center gap-2 mt-2 font-sans text-[8px] uppercase tracking-[0.4em] text-bright-gold hover:text-bright-gold transition-colors"
+                    data-t="location_button">
+                    <span class="material-symbols-outlined text-xs">location_on</span>
+                    Ver ubicación
+                </a>
+                <p class="font-sans text-[9px] uppercase tracking-[0.5em] text-bright-gold pt-4" data-t="banquet_label">
+                    Banquete &amp;
+                    Celebración</p>
+            </div>
+        </section>
+        <section class="px-5 py-24 mt-20 text-center">
+            <h3 class="text-3xl font-display italic mb-10" data-t="dress_code">Código de Vestimenta</h3>
+            <div class="mb-6">
+                <span class="material-symbols-outlined text-4xl text-charcoal/50 font-extralight">apparel</span>
+            </div>
+            <p class="text-2xl font-display mb-2" data-t="etiquette">Formal</p>
+            <p class="text-base font-display italic text-deep-grey leading-relaxed" data-t="dress_suggestion">
+                Sugerencia <br>
+                Hombres: Smoking <br> Mujeres:
+                Vestido
+                Largo</p>
+        </section>
+        <section class="px-10 py-24 text-center">
+            <h3 class="text-2xl font-display italic mb-8" data-t="wedding_gift">Regalo de Bodas</h3>
+            <p class="font-display italic text-lg text-deep-grey leading-relaxed mb-12" data-t="gift_text">
+                Su presencia es nuestro mejor regalo, pero si quieren tener un detalle con nosotros les
+                damos
+                algunas
+                ideas.
+            </p>
+            <div class="max-w-[320px] mx-auto space-y-16">
+                <!-- Bank Account Card -->
+                <div
+                    class="shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-bright-gold/10 text-left relative group overflow-hidden">
+                    <button
+                        class="accordion-toggle w-full p-10 flex items-center gap-3 text-charcoal hover:bg-black/[0.01] transition-colors focus:outline-none">
+                        <span
+                            class="material-symbols-outlined text-sm transition-transform duration-300">expand_more</span>
+                        <span class="intimate-dedication !text-2xl !leading-none text-charcoal"
+                            data-t="view_account">Ver
+                            número de cuenta</span>
+                    </button>
                     <div
-                        class="bg-white shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-bright-gold/10 text-left relative overflow-hidden">
-                        <button
-                            class="accordion-toggle w-full p-8 flex items-center gap-3 text-charcoal/80 hover:bg-black/[0.01] transition-colors focus:outline-none">
-                            <span
-                                class="material-symbols-outlined text-sm transition-transform duration-300">expand_more</span>
-                            <span class="intimate-dedication !text-2xl !leading-none text-charcoal/80"
-                                data-t="lodging_label">Hospedaje</span>
-                        </button>
-                        <div
-                            class="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out px-8">
-                            <div class="pb-10 space-y-4 text-charcoal/80 border-t border-bright-gold/5 pt-6">
-                                <p data-t="hacienda_desc"><strong>Hotel Boutique Casa de Campo</strong></p>
-                                <p data-t="fiesta_inn_desc">El lugar dónde se llevará a cabo el evento
-                                    cuenta con
-                                    habitaciones disponibles, los detalles a continuación:<br><br>
-                                    <strong>*Opción 1: Reservar la noche del evento (1 noche)</strong><br>
-                                    - Con impuestos $2,874.00 pesos en habitación para hasta 3 personas.<br>
-                                    (Se puede ajustar a un máximo de 4 personas pagando $750 extra).<br><br>
-                                    <strong>*Opción 2: Reservar 1 día antes del evento y la noche del evento
-                                        (2
-                                        noches)</strong><br>
-                                    - Con impuestos $5,748.00 pesos en habitación para hasta 3 personas.<br>
-                                    (Se puede ajustar a un máximo de 4 personas pagando $750 extra).<br>
-                                    Incluye Cóctel de bienvenida para invitados hospedados durante 1 hora el
-                                    día
-                                    viernes.<br><br>
-                                    Check in: 3 pm | Check out: 12 pm
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <!-- Tourist Places -->
-                    <div
-                        class="bg-white shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-bright-gold/10 text-left relative overflow-hidden">
-                        <button
-                            class="accordion-toggle w-full p-8 flex items-center gap-3 text-charcoal hover:bg-black/[0.01] transition-colors focus:outline-none">
-                            <span
-                                class="material-symbols-outlined text-sm transition-transform duration-300">expand_more</span>
-                            <span class="intimate-dedication !text-2xl !leading-none text-charcoal"
-                                data-t="tourism_label">Lugares que visitar</span>
-                        </button>
-                        <div
-                            class="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out px-4">
-                            <div class="pb-10 pt-6 border-t border-bright-gold/5 text-charcoal/80 space-y-8">
-                                <!-- Cathedral Card -->
-                                <div class="flip-card">
-                                    <div class="flip-card-inner">
-                                        <div class="flip-card-front">
-                                            <div class="card-label" data-t="cathedral_title">Catedral de
-                                                Cuernavaca
-                                            </div>
-                                            <img src="img/Catedral-Cuernavaca.jpg" alt="Catedral"
-                                                class="w-full h-full object-cover">
-                                            <div class="flip-hint">
-                                                <span class="material-symbols-outlined text-sm">sync</span>
-                                                <span data-t="flip_hint">Girar</span>
-                                            </div>
-                                        </div>
-                                        <div class="flip-card-back paper-texture">
-                                            <p data-t="cathedral_desc"><strong>Catedral
-                                                    de Cuernavaca</strong><br>La Catedral de Cuernavaca es
-                                                una de las
-                                                iglesias más antiguas de México, construida en el siglo XVI
-                                                por frailes
-                                                franciscanos, y destaca por su estructura que mezcla estilo
-                                                medieval tipo fortaleza con elementos renacentistas; forma
-                                                parte del
-                                                conjunto de
-                                                monasterios declarado Patrimonio de la Humanidad por la
-                                                UNESCO.</p>
-                                            <a href="https://maps.app.goo.gl/BZAtB4zpGZLQbckc8" target="_blank"
-                                                class="inline-flex items-center gap-2 mt-4 font-sans text-[8px] uppercase tracking-[0.4em] text-bright-gold/100 hover:text-bright-gold"
-                                                data-t="location_button">
-                                                <span class="material-symbols-outlined text-xs">location_on</span>
-                                                Ver ubicación
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Borda Card -->
-                                <div class="flip-card">
-                                    <div class="flip-card-inner">
-                                        <div class="flip-card-front">
-                                            <div class="card-label" data-t="borda_title">Jardín Borda</div>
-                                            <img src="img/Jardin-Borda.jpg" alt="Jardín Borda"
-                                                class="w-full h-full object-cover">
-                                            <div class="flip-hint">
-                                                <span class="material-symbols-outlined text-sm">sync</span>
-                                                <span data-t="flip_hint">Girar</span>
-                                            </div>
-                                        </div>
-                                        <div class="flip-card-back paper-texture">
-                                            <p data-t="borda_desc"><strong>Jardín
-                                                    Borda</strong><br>El Jardín Borda es un palacio y jardín
-                                                del siglo
-                                                XVIII que fue residencia de verano de los emperadores
-                                                Maximiliano I de
-                                                México y Carlota durante el Segundo Imperio Mexicano, un
-                                                periodo en el que México tuvo una monarquía apoyada por
-                                                Francia
-                                                (1864–1867). Hoy
-                                                funciona como museo y centro cultural.</p>
-                                            <a href="https://maps.app.goo.gl/nNzaY5VHnjyLn5CV7" target="_blank"
-                                                class="inline-flex items-center gap-2 mt-4 font-sans text-[8px] uppercase tracking-[0.4em] text-bright-gold/100 hover:text-bright-gold"
-                                                data-t="location_button">
-                                                <span class="material-symbols-outlined text-xs">location_on</span>
-                                                Ver ubicación
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Palacio Cortés -->
-                                <div class="flip-card">
-                                    <div class="flip-card-inner">
-                                        <div class="flip-card-front">
-                                            <div class="card-label" data-t="cortes_title">Palacio de Cortés
-                                            </div>
-                                            <img src="img/palacio-cortes.jpg" alt="Palacio de Cortés"
-                                                class="w-full h-full object-cover">
-                                            <div class="flip-hint">
-                                                <span class="material-symbols-outlined text-sm">sync</span>
-                                                <span data-t="flip_hint">Girar</span>
-                                            </div>
-                                        </div>
-                                        <div class="flip-card-back paper-texture">
-                                            <p data-t="cortes_desc"><strong>Palacio de
-                                                    Cortés</strong><br>El Palacio de Cortés es una
-                                                construcción del
-                                                siglo XVI mandada a edificar por Hernán Cortés, quien
-                                                encabezó la expedición que derrotó al Imperio mexica y tomó
-                                                Tenochtitlan
-                                                en
-                                                1521; es uno de los edificios civiles más antiguos de
-                                                México, combina
-                                                elementos
-                                                medievales con estilo renacentista y hoy funciona como museo
-                                                regional.
-                                            </p>
-                                            <a href="https://goo.gl/maps/c58ue8wqh1L8QyCcA" target="_blank"
-                                                class="inline-flex items-center gap-2 mt-4 font-sans text-[8px] uppercase tracking-[0.4em] text-bright-gold/100 hover:text-bright-gold"
-                                                data-t="location_button">
-                                                <span class="material-symbols-outlined text-xs">location_on</span>
-                                                Ver ubicación
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Teopanzolco -->
-                                <div class="flip-card">
-                                    <div class="flip-card-inner">
-                                        <div class="flip-card-front">
-                                            <div class="card-label" data-t="teopanzolco_title">Zona
-                                                Arqueológica
-                                                Teopanzolco</div>
-                                            <img src="img/teopanzolco.jpg" alt="Teopanzolco"
-                                                class="w-full h-full object-cover">
-                                            <div class="flip-hint">
-                                                <span class="material-symbols-outlined text-sm">sync</span>
-                                                <span data-t="flip_hint">Girar</span>
-                                            </div>
-                                        </div>
-                                        <div class="flip-card-back paper-texture">
-                                            <p data-t="teopanzolco_desc"><strong>Zona
-                                                    Arqueológica de Teopanzolco</strong><br>Es un centro
-                                                ceremonial
-                                                mexica construido entre los siglos XIII y XV, cuya
-                                                estructura principal es un templo doble dedicado a Tláloc,
-                                                dios de la
-                                                lluvia, y
-                                                Huitzilopochtli, dios de la guerra; se cree que fue un
-                                                importante punto
-                                                religioso y político en la región antes de la llegada de los
-                                                españoles y
-                                                hoy es
-                                                uno de los principales vestigios arqueológicos de
-                                                Cuernavaca.</p>
-                                            <a href="https://maps.app.goo.gl/kT6spYHtJoYHLPt28" target="_blank"
-                                                class="inline-flex items-center gap-2 mt-4 font-sans text-[8px] uppercase tracking-[0.4em] text-bright-gold/100 hover:text-bright-gold"
-                                                data-t="location_button">
-                                                <span class="material-symbols-outlined text-xs">location_on</span>
-                                                Ver ubicación
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- San Anton -->
-                                <div class="flip-card">
-                                    <div class="flip-card-inner">
-                                        <div class="flip-card-front">
-                                            <div class="card-label" data-t="san_anton_title">Cascada de San
-                                                Antón</div>
-                                            <img src="img/San-Anton.jpg" alt="Cascada San Antón"
-                                                class="w-full h-full object-cover">
-                                            <div class="flip-hint">
-                                                <span class="material-symbols-outlined text-sm">sync</span>
-                                                <span data-t="flip_hint">Girar</span>
-                                            </div>
-                                        </div>
-                                        <div class="flip-card-back paper-texture">
-                                            <p data-t="san_anton_desc"><strong>La
-                                                    cascada de san anton</strong><br>La Cascada Salto de San
-                                                Antón, es
-                                                una caída de agua de aproximadamente 40 metros formada por
-                                                roca
-                                                volcánica, ubicada en una barranca natural al norte de
-                                                Cuernavaca y
-                                                considerada uno de los atractivos naturales más emblemáticos
-                                                de la
-                                                ciudad.</p>
-                                            <a href="https://www.google.com/maps/place/Cascada+El+Salto+de+San+Ant%C3%B3n/@18.923168,-99.2533781,17z"
-                                                target="_blank"
-                                                class="inline-flex items-center gap-2 mt-4 font-sans text-[8px] uppercase tracking-[0.4em] text-bright-gold/100 hover:text-bright-gold"
-                                                data-t="location_button">
-                                                <span class="material-symbols-outlined text-xs">location_on</span>
-                                                Ver ubicación
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Tepoztlan -->
-                                <div class="flip-card">
-                                    <div class="flip-card-inner">
-                                        <div class="flip-card-front">
-                                            <div class="card-label" data-t="tepoztlan_title">Tepoztlán</div>
-                                            <img src="img/tepoz.webp" alt="Tepoztlán"
-                                                class="w-full h-full object-cover">
-                                            <div class="flip-hint">
-                                                <span class="material-symbols-outlined text-sm">sync</span>
-                                                <span data-t="flip_hint">Girar</span>
-                                            </div>
-                                        </div>
-                                        <div class="flip-card-back paper-texture">
-                                            <p data-t="tepoztlan_desc">
-                                                <strong>Tepoztlán</strong><br>Tepoztlán es un pueblo mágico
-                                                de origen
-                                                prehispánico ubicado al pie del Cerro del Tepozteco (a 30
-                                                minutos), famoso por su pirámide dedicada a Ometochtli, su
-                                                ex convento
-                                                del siglo
-                                                XVI y su ambiente tradicional; hoy es uno de los Pueblos
-                                                Mágicos más
-                                                visitados
-                                                de México.
-                                            </p>
-                                            <a href="https://maps.app.goo.gl/7qR69ADZggMskYH18" target="_blank"
-                                                class="inline-flex items-center gap-2 mt-4 font-sans text-[8px] uppercase tracking-[0.4em] text-bright-gold/100 hover:text-bright-gold"
-                                                data-t="location_button">
-                                                <span class="material-symbols-outlined text-xs">location_on</span>
-                                                Ver ubicación
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        class="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out px-10">
+                        <div class="pb-10 space-y-3 text-charcoal/90 border-t border-bright-gold/5 pt-6">
+                            <p class="font-display text-xl leading-tight">Banorte</p>
+                            <p class="font-display text-xl leading-tight tracking-[0.05em]">0725 4001 3532 0270 78
+                            </p>
+                            <p class="font-display text-xl leading-tight">Laura Isela Castillo Galeana</p>
                         </div>
                     </div>
                 </div>
-            </section>
-            <section class="px-10 pt-20 pb-16 border-t border-bright-gold/10 text-center">
-                <div class="text-center mb-10">
-                    <h3 class="text-3xl font-display italic mb-2" data-t="rsvp_title">R.S.V.P.</h3>
-                    <p class="text-sm uppercase tracking-[0.3em] text-deep-grey font-medium" data-t="rsvp_deadline">
-                        Favor de
-                        confirmar antes del 1
-                        de Abril</p>
+
+                <!-- Caja de sobres -->
+                <div class="flex flex-col items-center space-y-4">
+                    <span class="material-symbols-outlined text-5xl text-charcoal">mail</span>
+                    <p class="intimate-dedication !text-2xl !leading-none text-charcoal" data-t="envelope_box">
+                        Caja de sobres</p>
                 </div>
-                <div class="flex justify-center pt-4">
-                    <button id="open-rsvp-modal"
-                        class="w-full max-w-[300px] border border-bright-gold/30 bg-white text-bright-gold/80 font-sans text-[10px] uppercase tracking-[0.4em] py-6 font-medium shadow-sm hover:bg-bright-gold/5 transition-all active:scale-95"
-                        data-t="confirm_attendance">Confirmar
-                        Asistencia</button>
+            </div>
+        </section>
+
+        <section class="px-10 py-24 text-center">
+            <h3 class="text-2xl font-display italic mb-12" data-t="suggestions_title">Sugerencias</h3>
+
+            <div class="max-w-[320px] mx-auto space-y-6">
+                <!-- Lodging -->
+                <div
+                    class="shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-bright-gold/10 text-left relative overflow-hidden">
+                    <button
+                        class="accordion-toggle w-full p-8 flex items-center gap-3 text-charcoal/80 hover:bg-black/[0.01] transition-colors focus:outline-none">
+                        <span
+                            class="material-symbols-outlined text-sm transition-transform duration-300">expand_more</span>
+                        <span class="intimate-dedication !text-2xl !leading-none text-charcoal"
+                            data-t="lodging_label">Hospedaje</span>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out px-8">
+                        <div class="pb-10 space-y-4 text-charcoal border-t border-bright-gold/10 pt-6">
+                            <p data-t="hacienda_desc"><strong>Hotel Boutique Casa de Campo</strong></p>
+                            <p data-t="fiesta_inn_desc">El lugar dónde se llevará a cabo el evento
+                                cuenta con
+                                habitaciones disponibles, los detalles a continuación:<br><br>
+                                <strong>*Opción 1: Reservar la noche del evento (1 noche)</strong><br>
+                                - Con impuestos $2,874.00 pesos en habitación para hasta 3 personas.<br>
+                                (Se puede ajustar a un máximo de 4 personas pagando $750 extra).<br><br>
+                                <strong>*Opción 2: Reservar 1 día antes del evento y la noche del evento
+                                    (2
+                                    noches)</strong><br>
+                                - Con impuestos $5,748.00 pesos en habitación para hasta 3 personas.<br>
+                                (Se puede ajustar a un máximo de 4 personas pagando $750 extra).<br>
+                                Incluye Cóctel de bienvenida para invitados hospedados durante 1 hora el
+                                día
+                                viernes.<br><br>
+                                Check in: 3 pm | Check out: 12 pm
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </section>
-        </main>
-        <footer class="py-12 text-center">
-            <p class="font-sans text-[9px] uppercase tracking-[0.8em] text-deep-grey font-semibold">L &amp; M • MÉXICO •
-                2026</p>
-        </footer>
-    </div>
+
+
+
+                <!-- Tourist Places -->
+                <div
+                    class="shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-bright-gold/10 text-left relative overflow-hidden">
+                    <button
+                        class="accordion-toggle w-full p-8 flex items-center gap-3 text-charcoal hover:bg-black/[0.01] transition-colors focus:outline-none">
+                        <span
+                            class="material-symbols-outlined text-sm transition-transform duration-300">expand_more</span>
+                        <span class="intimate-dedication !text-2xl !leading-none text-charcoal"
+                            data-t="tourism_label">Lugares que visitar</span>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out px-4">
+                        <div class="pb-10 pt-6 border-t border-bright-gold/10 text-charcoal space-y-8">
+                            <!-- Cathedral Card -->
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="card-label" data-t="cathedral_title">Catedral de
+                                            Cuernavaca
+                                        </div>
+                                        <img src="img/Catedral-Cuernavaca.jpg" alt="Catedral"
+                                            class="w-full h-full object-cover">
+                                        <div class="flip-hint">
+                                            <span class="material-symbols-outlined text-sm">sync</span>
+                                            <span data-t="flip_hint">Girar</span>
+                                        </div>
+                                    </div>
+                                    <div class="flip-card-back paper-texture">
+                                        <p data-t="cathedral_desc"><strong>Catedral
+                                                de Cuernavaca</strong><br>La Catedral de Cuernavaca es
+                                            una de las
+                                            iglesias más antiguas de México, construida en el siglo XVI
+                                            por frailes
+                                            franciscanos, y destaca por su estructura que mezcla estilo
+                                            medieval tipo fortaleza con elementos renacentistas; forma
+                                            parte del
+                                            conjunto de
+                                            monasterios declarado Patrimonio de la Humanidad por la
+                                            UNESCO.</p>
+                                        <a href="https://maps.app.goo.gl/BZAtB4zpGZLQbckc8" target="_blank"
+                                            class="inline-flex items-center gap-2 mt-4 font-sans text-[8px] uppercase tracking-[0.4em] text-bright-gold/100 hover:text-bright-gold"
+                                            data-t="location_button">
+                                            <span class="material-symbols-outlined text-xs">location_on</span>
+                                            Ver ubicación
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Borda Card -->
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="card-label" data-t="borda_title">Jardín Borda</div>
+                                        <img src="img/Jardin-Borda.jpg" alt="Jardín Borda"
+                                            class="w-full h-full object-cover">
+                                        <div class="flip-hint">
+                                            <span class="material-symbols-outlined text-sm">sync</span>
+                                            <span data-t="flip_hint">Girar</span>
+                                        </div>
+                                    </div>
+                                    <div class="flip-card-back paper-texture">
+                                        <p data-t="borda_desc"><strong>Jardín
+                                                Borda</strong><br>El Jardín Borda es un palacio y jardín
+                                            del siglo
+                                            XVIII que fue residencia de verano de los emperadores
+                                            Maximiliano I de
+                                            México y Carlota durante el Segundo Imperio Mexicano, un
+                                            periodo en el que México tuvo una monarquía apoyada por
+                                            Francia
+                                            (1864–1867). Hoy
+                                            funciona como museo y centro cultural.</p>
+                                        <a href="https://maps.app.goo.gl/nNzaY5VHnjyLn5CV7" target="_blank"
+                                            class="inline-flex items-center gap-2 mt-4 font-sans text-[8px] uppercase tracking-[0.4em] text-bright-gold/100 hover:text-bright-gold"
+                                            data-t="location_button">
+                                            <span class="material-symbols-outlined text-xs">location_on</span>
+                                            Ver ubicación
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Palacio Cortés -->
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="card-label" data-t="cortes_title">Palacio de Cortés
+                                        </div>
+                                        <img src="img/palacio-cortes.jpg" alt="Palacio de Cortés"
+                                            class="w-full h-full object-cover">
+                                        <div class="flip-hint">
+                                            <span class="material-symbols-outlined text-sm">sync</span>
+                                            <span data-t="flip_hint">Girar</span>
+                                        </div>
+                                    </div>
+                                    <div class="flip-card-back paper-texture">
+                                        <p data-t="cortes_desc"><strong>Palacio de
+                                                Cortés</strong><br>El Palacio de Cortés es una
+                                            construcción del
+                                            siglo XVI mandada a edificar por Hernán Cortés, quien
+                                            encabezó la expedición que derrotó al Imperio mexica y tomó
+                                            Tenochtitlan
+                                            en
+                                            1521; es uno de los edificios civiles más antiguos de
+                                            México, combina
+                                            elementos
+                                            medievales con estilo renacentista y hoy funciona como museo
+                                            regional.
+                                        </p>
+                                        <a href="https://goo.gl/maps/c58ue8wqh1L8QyCcA" target="_blank"
+                                            class="inline-flex items-center gap-2 mt-4 font-sans text-[8px] uppercase tracking-[0.4em] text-bright-gold/100 hover:text-bright-gold"
+                                            data-t="location_button">
+                                            <span class="material-symbols-outlined text-xs">location_on</span>
+                                            Ver ubicación
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Teopanzolco -->
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="card-label" data-t="teopanzolco_title">Zona
+                                            Arqueológica
+                                            Teopanzolco</div>
+                                        <img src="img/teopanzolco.jpg" alt="Teopanzolco"
+                                            class="w-full h-full object-cover">
+                                        <div class="flip-hint">
+                                            <span class="material-symbols-outlined text-sm">sync</span>
+                                            <span data-t="flip_hint">Girar</span>
+                                        </div>
+                                    </div>
+                                    <div class="flip-card-back paper-texture">
+                                        <p data-t="teopanzolco_desc"><strong>Zona
+                                                Arqueológica de Teopanzolco</strong><br>Es un centro
+                                            ceremonial
+                                            mexica construido entre los siglos XIII y XV, cuya
+                                            estructura principal es un templo doble dedicado a Tláloc,
+                                            dios de la
+                                            lluvia, y
+                                            Huitzilopochtli, dios de la guerra; se cree que fue un
+                                            importante punto
+                                            religioso y político en la región antes de la llegada de los
+                                            españoles y
+                                            hoy es
+                                            uno de los principales vestigios arqueológicos de
+                                            Cuernavaca.</p>
+                                        <a href="https://maps.app.goo.gl/kT6spYHtJoYHLPt28" target="_blank"
+                                            class="inline-flex items-center gap-2 mt-4 font-sans text-[8px] uppercase tracking-[0.4em] text-bright-gold/100 hover:text-bright-gold"
+                                            data-t="location_button">
+                                            <span class="material-symbols-outlined text-xs">location_on</span>
+                                            Ver ubicación
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- San Anton -->
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="card-label" data-t="san_anton_title">Cascada de San
+                                            Antón</div>
+                                        <img src="img/San-Anton.jpg" alt="Cascada San Antón"
+                                            class="w-full h-full object-cover">
+                                        <div class="flip-hint">
+                                            <span class="material-symbols-outlined text-sm">sync</span>
+                                            <span data-t="flip_hint">Girar</span>
+                                        </div>
+                                    </div>
+                                    <div class="flip-card-back paper-texture">
+                                        <p data-t="san_anton_desc"><strong>La
+                                                cascada de san anton</strong><br>La Cascada Salto de San
+                                            Antón, es
+                                            una caída de agua de aproximadamente 40 metros formada por
+                                            roca
+                                            volcánica, ubicada en una barranca natural al norte de
+                                            Cuernavaca y
+                                            considerada uno de los atractivos naturales más emblemáticos
+                                            de la
+                                            ciudad.</p>
+                                        <a href="https://www.google.com/maps/place/Cascada+El+Salto+de+San+Ant%C3%B3n/@18.923168,-99.2533781,17z"
+                                            target="_blank"
+                                            class="inline-flex items-center gap-2 mt-4 font-sans text-[8px] uppercase tracking-[0.4em] text-bright-gold/100 hover:text-bright-gold"
+                                            data-t="location_button">
+                                            <span class="material-symbols-outlined text-xs">location_on</span>
+                                            Ver ubicación
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tepoztlan -->
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="card-label" data-t="tepoztlan_title">Tepoztlán</div>
+                                        <img src="img/tepoz.webp" alt="Tepoztlán" class="w-full h-full object-cover">
+                                        <div class="flip-hint">
+                                            <span class="material-symbols-outlined text-sm">sync</span>
+                                            <span data-t="flip_hint">Girar</span>
+                                        </div>
+                                    </div>
+                                    <div class="flip-card-back paper-texture">
+                                        <p data-t="tepoztlan_desc">
+                                            <strong>Tepoztlán</strong><br>Tepoztlán es un pueblo mágico
+                                            de origen
+                                            prehispánico ubicado al pie del Cerro del Tepozteco (a 30
+                                            minutos), famoso por su pirámide dedicada a Ometochtli, su
+                                            ex convento
+                                            del siglo
+                                            XVI y su ambiente tradicional; hoy es uno de los Pueblos
+                                            Mágicos más
+                                            visitados
+                                            de México.
+                                        </p>
+                                        <a href="https://maps.app.goo.gl/7qR69ADZggMskYH18" target="_blank"
+                                            class="inline-flex items-center gap-2 mt-4 font-sans text-[8px] uppercase tracking-[0.4em] text-bright-gold/100 hover:text-bright-gold"
+                                            data-t="location_button">
+                                            <span class="material-symbols-outlined text-xs">location_on</span>
+                                            Ver ubicación
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="px-10 pt-20 pb-16 border-t border-bright-gold/10 text-center">
+            <div class="text-center mb-10">
+                <h3 class="text-3xl font-display italic mb-2" data-t="rsvp_title">R.S.V.P.</h3>
+                <p class="text-sm uppercase tracking-[0.3em] text-deep-grey font-medium" data-t="rsvp_deadline">
+                    Favor de
+                    confirmar antes del 1
+                    de Abril</p>
+            </div>
+            <div class="flex justify-center pt-4">
+                <button id="open-rsvp-modal"
+                    class="w-full max-w-[300px] border border-bright-gold/30 bg-white text-bright-gold font-sans text-[10px] uppercase tracking-[0.4em] py-6 font-medium shadow-sm hover:bg-bright-gold/5 transition-all active:scale-95"
+                    data-t="confirm_attendance">Confirmar
+                    Asistencia</button>
+            </div>
+        </section>
+
+        <!-- Final Civil Photos Section (Full Width) -->
+        <div class="flex flex-col">
+            <img src="img/civil_1.jpg" alt="Civil Wedding 1"
+                class="w-full object-cover hero-feather-mask !rounded-none">
+            <img src="img/civil_2.jpg" alt="Civil Wedding 2" class="w-full object-cover !rounded-none">
+            <img src="img/civil_3.jpg" alt="Civil Wedding 3" class="w-full object-cover !rounded-none">
+            <img src="img/civil_4.jpg" alt="Civil Wedding 4" class="w-full object-cover !rounded-none">
+        </div>
+
+        <!-- Final Biblical Quote integrated in Main -->
+        <div class="max-w-xs mx-auto py-24 text-center">
+            <p class="font-display italic text-charcoal text-[1.2rem] leading-relaxed mb-4 px-4"
+                data-t="love_history_quote">
+                "Más valen dos que uno, porque obtienen más fruto de su esfuerzo. Si caen, el uno levanta al otro."
+            </p>
+            <div class="flex items-center justify-center gap-3 my-4">
+                <div class="h-[0.5px] w-6 bg-bright-gold/30"></div>
+                <div class="w-1 h-1 rotate-45 border border-bright-gold/40"></div>
+                <div class="h-[0.5px] w-6 bg-bright-gold/30"></div>
+            </div>
+            <p class="font-sans text-[9px] uppercase tracking-[0.4em] text-deep-grey" data-t="love_history_ref">
+                Eclesiastés 4:9-10</p>
+        </div>
+    </main>
     <script>
         // Ensure page starts at top on reload
         window.onbeforeunload = function () {
@@ -1416,7 +1423,8 @@
                 hours: "Hrs",
                 minutes: "Min",
                 seconds: "Seg",
-                love_history: "Más valen dos que uno, porque obtienen más fruto de su esfuerzo. Si caen, el uno levanta al otro. <br> (Eclesiastés 4:9-10)",
+                love_history_quote: "\"Más valen dos que uno, porque obtienen más fruto de su esfuerzo. Si caen, el uno levanta al otro.\"",
+                love_history_ref: "Eclesiastés 4:9-10",
                 swipe_more: "Desliza para ver más",
                 saturday: "Sábado, 09 de Mayo 2026",
                 religious_ceremony: "Ceremonia Religiosa",
@@ -1508,7 +1516,8 @@
                 hours: "Hrs",
                 minutes: "Min",
                 seconds: "Sec",
-                love_history: "Two are better than one, because they have a good return for their labor: If either of them falls down, one can help the other up. <br> (Ecclesiastes 4:9-10)",
+                love_history_quote: "\"Two are better than one, because they have a good return for their labor: If either of them falls down, one can help the other up.\"",
+                love_history_ref: "Ecclesiastes 4:9-10",
                 swipe_more: "Swipe for more",
                 saturday: "Saturday, May 09, 2026",
                 religious_ceremony: "Religious Ceremony",
