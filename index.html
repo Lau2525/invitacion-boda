@@ -737,7 +737,7 @@
             </div>
             <section class="px-10 text-center -mt-10 mb-16 relative z-20">
                 <div class="max-w-xs mx-auto">
-                    <p class="font-display italic text-charcoal/80 text-xl leading-relaxed mb-4"
+                    <p class="font-display italic text-charcoal/80 text-base leading-relaxed mb-4"
                         data-t="biblical_quote">
                         "Así que no son ya más dos, sino una sola carne; por tanto, lo que Dios juntó, no lo separe el
                         hombre."
@@ -1722,7 +1722,7 @@
 
         <!-- Modal Content -->
         <div id="modal-container"
-            class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-lg bg-white rounded-t-[40px] shadow-[0_-20px_60px_rgba(0,0,0,0.1)] p-8 sm:p-10 transform translate-y-full transition-transform duration-500 ease-out sm:top-1/2 sm:bottom-auto sm:-translate-y-1/2 sm:rounded-[30px] overflow-y-auto max-h-[95vh] custom-scrollbar px-8">
+            class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-lg bg-white rounded-t-[40px] shadow-[0_-20px_60px_rgba(0,0,0,0.1)] p-6 sm:p-8 transform translate-y-full transition-transform duration-500 ease-out sm:top-1/2 sm:bottom-auto sm:-translate-y-1/2 sm:rounded-[30px] overflow-y-auto max-h-[95vh] custom-scrollbar px-6">
 
             <!-- Close Button -->
             <button id="close-modal"
@@ -1731,9 +1731,9 @@
             </button>
 
             <!-- Step 1: Guest Count -->
-            <div id="step-1" class="space-y-8 flex flex-col justify-between">
+            <div id="step-1" class="space-y-8">
                 <div id="global-err-msg"
-                    class="hidden p-6 mx-4 bg-orange-50 border border-orange-200 rounded-lg text-base leading-relaxed text-orange-800 text-center font-bold">
+                    class="hidden p-10 mx-4 bg-orange-50 border border-orange-200 rounded-lg text-base leading-relaxed text-orange-800 text-center font-bold">
                 </div>
                 <div class="text-center space-y-2">
                     <h3 class="font-display italic text-3xl text-charcoal" data-t="guest_count_title">¿Cuántos invitados
@@ -1759,7 +1759,7 @@
             </div>
 
             <!-- Step 2: Guest Names -->
-            <div id="step-2" class="hidden space-y-8 flex flex-col justify-between">
+            <div id="step-2" class="hidden space-y-8">
                 <div class="text-center space-y-2">
                     <h3 class="font-display italic text-3xl text-charcoal" data-t="guest_names_title">Nombres de
                         invitados</h3>
@@ -1799,7 +1799,7 @@
 
                 <div id="hotel-options" class="hidden space-y-6 border-t border-bright-gold/10 pt-8">
                     <div
-                        class="bg-bright-gold/5 border border-bright-gold/10 p-8 rounded-2xl flex items-start gap-4 mb-4">
+                        class="bg-bright-gold/5 border border-bright-gold/10 p-10 rounded-2xl flex items-start gap-4 mb-4">
                         <span class="material-symbols-outlined text-bright-gold/60 text-lg mt-0.5">info</span>
                         <p class="text-[15px] leading-relaxed text-charcoal/80 italic font-medium"
                             data-t="room_suggest">
@@ -2094,7 +2094,7 @@
             const submitBtn = document.getElementById('btn-submit');
 
             hotelMsg.classList.add('hidden');
-            hotelMsg.className = "p-8 rounded-lg text-base leading-relaxed hidden"; // Default classes including hidden
+            hotelMsg.className = "p-10 rounded-lg text-base leading-relaxed hidden"; // Default classes including hidden
 
             submitBtn.disabled = false;
             submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
@@ -2103,7 +2103,7 @@
 
             const showHotelErr = (msg) => {
                 hotelMsg.innerHTML = msg;
-                hotelMsg.className = "p-8 bg-red-50 border border-red-200 rounded-lg text-base leading-relaxed text-red-800 font-bold";
+                hotelMsg.className = "p-10 bg-red-50 border border-red-200 rounded-lg text-base leading-relaxed text-red-800 font-bold";
                 hotelMsg.classList.remove('hidden');
                 isValid = false;
             };
