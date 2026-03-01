@@ -98,6 +98,75 @@
             z-index: 50;
         }
 
+        /* Music Floating Control - Pill Style near Language */
+        .music-player-btn {
+            position: fixed;
+            top: 1.5rem;
+            left: 1.5rem;
+            /* Opposite side for balance or near right */
+            z-index: 300;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 99px;
+            font-family: "Montserrat", sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #7a5a3a;
+            border: 1px solid rgba(122, 90, 58, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .music-player-btn.active .music-icon {
+            animation: rotate 4s linear infinite;
+        }
+
+        .music-player-btn:hover {
+            transform: scale(1.1);
+            background: white;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .pulse-effect {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 1px solid #63462d;
+            opacity: 0;
+        }
+
+        .active .pulse-effect {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
         .wax-seal-img {
             width: 100%;
             height: 100%;
@@ -726,6 +795,16 @@
             style="animation-duration: 18s; animation-delay: 7s; background: linear-gradient(135deg, #fff 0%, #fff0f0 100%); border-radius: 90% 10% 90% 20% / 100% 20% 90% 10%;">
         </div>
     </div>
+    <!-- Music Player HTML -->
+    <div id="music-toggle" class="music-player-btn">
+        <div class="pulse-effect"></div>
+        <span class="material-symbols-outlined music-icon text-[14px]">music_note</span>
+        <span id="music-label">Música: OFF</span>
+        <audio id="bg-music" loop>
+            <source src="img/7a851c8a.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
     <main class="w-full max-w-md content-container min-h-screen pb-32">
 
         <div class="relative w-full aspect-[4/6] overflow-hidden">
@@ -1039,12 +1118,12 @@
                                 habitaciones disponibles, los detalles a continuación:<br><br>
                                 <strong>*Opción 1: Reservar la noche del evento (1 noche)</strong><br>
                                 - Con impuestos $2,874.00 pesos en habitación para hasta 3 personas.<br>
-                                (Se puede ajustar a un máximo de 4 personas pagando $750 extra).<br><br>
+                                (Se puede ajustar a un máximo de 4 personas pagando $750 extra por noche).<br><br>
                                 <strong>*Opción 2: Reservar 1 día antes del evento y la noche del evento
                                     (2
                                     noches)</strong><br>
                                 - Con impuestos $5,748.00 pesos en habitación para hasta 3 personas.<br>
-                                (Se puede ajustar a un máximo de 4 personas pagando $750 extra).<br>
+                                (Se puede ajustar a un máximo de 4 personas pagando $750 extra por noche).<br>
                                 Incluye Cóctel de bienvenida para invitados hospedados durante 1 hora el
                                 día
                                 viernes.<br><br>
@@ -1286,7 +1365,7 @@
                 </div>
             </div>
         </section>
-        <section class="px-10 pt-20 pb-16 border-t border-bright-gold/10 text-center">
+        <section class="px-10 pt-20 pb-20 border-t border-bright-gold/10 text-center">
             <div class="text-center mb-10">
                 <h3 class="text-3xl font-display italic mb-2" data-t="rsvp_title">R.S.V.P.</h3>
                 <p class="text-sm uppercase tracking-[0.3em] text-deep-grey font-medium" data-t="rsvp_deadline">
@@ -1302,6 +1381,90 @@
             </div>
         </section>
 
+        <!-- Guest Book / Special Words Section -->
+        <section class="px-10 pt-20 pb-40 text-center bg-ivory/50">
+            <div class="max-w-[320px] mx-auto space-y-8">
+                <div class="text-center space-y-2">
+                    <p class="text-[11px] uppercase tracking-[0.2em] text-charcoal font-bold" data-t="guestbook_text">
+                        Déjanos un mensaje con buenos deseos para nuestra nueva etapa
+                    </p>
+                    <div class="w-12 h-[1px] bg-bright-gold mx-auto opacity-30 mt-4"></div>
+                </div>
+
+                <div
+                    class="paper-texture p-8 shadow-[0_15px_45px_rgba(0,0,0,0.03)] border border-bright-gold/10 space-y-6 relative overflow-hidden group">
+                    <!-- Subtle background decoration -->
+                    <div
+                        class="absolute -top-10 -right-10 opacity-[0.03] transition-transform duration-1000 group-hover:rotate-12">
+                        <span class="material-symbols-outlined text-9xl">edit_note</span>
+                    </div>
+
+                    <div class="space-y-4 relative z-10">
+                        <textarea id="guestbook-message"
+                            class="w-full bg-transparent border-b border-bright-gold/20 focus:border-bright-gold transition-colors py-4 font-display text-lg italic text-charcoal placeholder:text-deep-grey/20 placeholder:font-sans placeholder:text-xs placeholder:tracking-widest min-h-[120px] focus:ring-0 resize-none"
+                            data-t-placeholder="guestbook_message_placeholder"
+                            placeholder="Escribe aquí tus palabras..."></textarea>
+
+                        <input type="text" id="guestbook-signature"
+                            class="w-full bg-transparent border-b border-bright-gold/20 focus:border-bright-gold transition-colors py-4 font-display text-base text-charcoal/80 placeholder:text-deep-grey/20 placeholder:font-sans placeholder:text-[10px] placeholder:uppercase placeholder:tracking-[0.2em] focus:ring-0"
+                            data-t-placeholder="guestbook_signature_placeholder"
+                            placeholder="Con cariño... (ej: Familia Pérez)">
+                    </div>
+
+                    <button id="btn-send-message"
+                        class="w-full bg-white border border-bright-gold/30 text-bright-gold font-sans text-[9px] uppercase tracking-[0.4em] py-5 font-bold hover:bg-bright-gold/5 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+                        data-t="guestbook_submit">Enviar mensaje con amor</button>
+
+                    <div id="guestbook-success-msg"
+                        class="hidden animate-fade-in py-4 text-bright-gold font-display italic text-lg"
+                        data-t="guestbook_success">
+                        ¡Gracias por tus bellas palabras!
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            document.getElementById('btn-send-message').addEventListener('click', async function () {
+                const message = document.getElementById('guestbook-message').value.trim();
+                const signature = document.getElementById('guestbook-signature').value.trim();
+                const btn = this;
+                const successMsg = document.getElementById('guestbook-success-msg');
+
+                if (!message || !signature) {
+                    alert(currentLang === 'es' ? 'Por favor escribe un mensaje y tu firma' : 'Please write a message and your signature');
+                    return;
+                }
+
+                btn.disabled = true;
+                btn.innerText = currentLang === 'es' ? 'Enviando...' : 'Sending...';
+
+                const formData = new FormData();
+                formData.append('Type', 'Guestbook');
+                formData.append('Message', message);
+                formData.append('Signature', signature);
+                formData.append('Date', new Date().toLocaleString());
+
+                try {
+                    // Using the same URL as RSVP if applicable, ensure GAS handles 'Type' or specific fields
+                    await fetch('https://script.google.com/macros/s/AKfycbw_dBFq4nGIMGqp0za2Hf35HraI4f6NELamDtPEKF516IrnoVOU0psoQuTxOvL76AJDiw/exec', {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        body: formData
+                    });
+
+                    // Hide inputs and button, show success
+                    document.getElementById('guestbook-message').parentElement.classList.add('hidden');
+                    btn.classList.add('hidden');
+                    successMsg.classList.remove('hidden');
+                } catch (e) {
+                    alert(currentLang === 'es' ? 'Ocurrió un error al enviar, por favor intenta de nuevo' : 'An error occurred while sending, please try again');
+                    btn.disabled = false;
+                    btn.innerText = currentLang === 'es' ? 'Enviar mensaje con amor' : 'Send message with love';
+                }
+            });
+        </script>
+
         <!-- Final Civil Photos Section (Full Width) -->
         <div class="flex flex-col">
             <img src="img/civil_1.jpg" alt="Civil Wedding 1"
@@ -1316,7 +1479,7 @@
         </div>
 
         <!-- Final Biblical Quote integrated in Main -->
-        <div class="max-w-xs mx-auto py-24 text-center">
+        <div class="max-w-xs mx-auto pt-8 pb-4 text-center">
             <p class="font-display italic text-charcoal text-[1.2rem] leading-relaxed mb-4 px-4"
                 data-t="love_history_quote">
                 "Más valen dos que uno, porque obtienen más fruto de su esfuerzo. Si caen, el uno levanta al otro."
@@ -1340,6 +1503,27 @@
         }
         window.scrollTo(0, 0);
 
+        // Music Logic
+        const bgMusic = document.getElementById('bg-music');
+        const musicBtn = document.getElementById('music-toggle');
+        let isMusicPlaying = false;
+
+        function toggleMusic() {
+            const label = document.getElementById('music-label');
+            if (isMusicPlaying) {
+                bgMusic.pause();
+                musicBtn.classList.remove('active');
+                label.innerText = currentLang === 'es' ? 'Música: OFF' : 'Music: OFF';
+            } else {
+                bgMusic.play();
+                musicBtn.classList.add('active');
+                label.innerText = currentLang === 'es' ? 'Música: ON' : 'Music: ON';
+            }
+            isMusicPlaying = !isMusicPlaying;
+        }
+
+        musicBtn.addEventListener('click', toggleMusic);
+
         // Envelope logic
         document.getElementById('envelope-overlay').addEventListener('click', function () {
             const flap = document.getElementById('envelope-flap');
@@ -1349,6 +1533,11 @@
             // 1. Flip the flap
             flap.style.transform = 'rotateX(180deg)';
             flap.style.zIndex = '5'; // Move behind the rest
+
+            // Play music automatically when opening if not already playing
+            if (!isMusicPlaying) {
+                toggleMusic();
+            }
 
             // 2. Hide seal
             seal.style.opacity = '0';
@@ -1454,11 +1643,11 @@
                 account_name: "Nombre de Cuenta",
                 bank_clabe: "Banco / CLABE",
                 rsvp_title: "R.S.V.P.",
-                rsvp_deadline: "Favor de confirmar antes del 1 de Abril",
+                rsvp_deadline: "Favor de confirmar antes del 20 de Marzo",
                 confirm_attendance: "Confirmar Asistencia",
                 guest_count_title: "¿Cuántos invitados son?",
                 next_button: "Siguiente",
-                guest_names_title: "Nombres de invitados",
+                guest_names_title: "Nombres completos de invitados",
                 submit_button: "Confirmar",
                 rsvp_success: "¡Muchas gracias!",
                 rsvp_success_text: "Tu asistencia ha sido registrada.",
@@ -1468,15 +1657,15 @@
                 rooms_label: "Número de habitaciones",
                 stay_option_label: "Selecciona tu estancia",
                 stay_opt_1: "Noche del evento (1 noche)",
-                stay_opt_2: "1 día antes y noche del evento (2 noches)",
-                extra_person_label: "Personas extras totales (+$750 cada una)",
-                breakfast_label: "¿Te gustaría desayunar en el hotel?",
-                breakfast_alert: "El costo del desayuno es adicional. Por favor contacta a la novia para más información.",
-                room_suggest: "Las habitaciones son para 3 personas, pero es posible albergar hasta un máximo de 4 personas. Si quiere agregar una extra (4 personas en total por habitación), debe pagar 750 adicionales.",
+                stay_opt_2: "1 día antes y noche del evento (2 noches)<br>- Incluye cóctel de bienvenida como cortesía",
+                extra_person_label: "Personas extras totales (+$750 c/u por día)",
+                breakfast_label: "¿Te gustaría desayunar en el hotel? (+$350 c/u por día)",
+                breakfast_alert: "El costo del desayuno es de $350 por persona por día y se sumará al total estimado.",
+                room_suggest: "Las habitaciones son para 3 personas, pero es posible albergar hasta un máximo de 4 personas. Si quiere agregar una extra (4 personas en total por habitación), debe pagar $750 adicionales por día.",
                 hotel_guest_reminder: "Invitados seleccionados:",
                 modify_guest_count: "Modificar número de invitados",
                 extra_person_note: "(Máximo 1 por habitación)",
-                room_err_3: "Las habitaciones son para 3 personas, pero es posible albergar hasta un máximo de 4 personas. Si quiere agregar una extra (4 personas en total por habitación), debe pagar 750 adicionales.",
+                room_err_3: "Las habitaciones son para 3 personas, pero es posible albergar hasta un máximo de 4 personas. Si quiere agregar una extra (4 personas en total por habitación), debe pagar $750 adicionales por día.",
                 room_err_4: "Solo se puede agregar 1 persona extra por habitación, llegando a un máximo de 4 personas por habitación. Por favor selecciona más habitaciones.",
                 total_est_label: "Total estimado:",
                 confirm_final: "Confirmar y Enviar",
@@ -1502,7 +1691,13 @@
                 san_anton_desc: "<strong>La Cascada de San Antón</strong><br>La Cascada Salto de San Antón, es una caída de agua de aproximadamente 40 metros formada por roca volcánica, ubicada en una barranca natural al norte de Cuernavaca y considerada uno de los atractivos naturales más emblemáticos de la ciudad.",
                 tepoztlan_desc: "<strong>Tepoztlán</strong><br>Tepoztlán es un pueblo mágico de origen prehispánico ubicado al pie del Cerro del Tepozteco (a 30 minutos), famoso por su pirámide dedicada a Ometochtli, su ex convento del siglo XVI y su ambiente tradicional; hoy es uno de los Pueblos Mágicos más visitados de México.",
                 hacienda_desc: "<strong>Hotel Boutique Casa de Campo</strong>",
-                fiesta_inn_desc: "El lugar dónde se llevará a cabo el evento cuenta con habitaciones disponibles, los detalles a continuación:<br><br><strong>*Opción 1: Reservar la noche del evento (1 noche)</strong><br>- Con impuestos $2,874.00 pesos en habitación para hasta 3 personas.<br>(Se puede ajustar a un máximo de 4 personas pagando $750 extra).<br><br><strong>*Opción 2: Reservar 1 día antes del evento y la noche del evento (2 noches)</strong><br>- Con impuestos $5,748.00 pesos en habitación para hasta 3 personas.<br>(Se puede ajustar a un máximo de 4 personas pagando $750 extra).<br>Incluye Cóctel de bienvenida para invitados hospedados durante 1 hora el día viernes.<br><br>Check in: 3 pm | Check out: 12 pm"
+                fiesta_inn_desc: "El lugar dónde se llevará a cabo el evento cuenta con habitaciones disponibles, los detalles a continuación:<br><br><strong>*Opción 1: Reservar la noche del evento (1 noche)</strong><br>- Con impuestos $2,874.00 pesos en habitación para hasta 3 personas.<br>(Se puede ajustar a un máximo de 4 personas pagando $750 extra por día).<br><br><strong>*Opción 2: Reservar 1 día antes del evento y la noche del evento (2 noches)</strong><br>- Con impuestos $5,748.00 pesos en habitación para hasta 3 personas.<br>(Se puede ajustar a un máximo de 4 personas pagando $750 extra por día).<br>Incluye Cóctel de bienvenida para invitados hospedados durante 1 hora el día viernes.<br><br>Check in: 3 pm | Check out: 12 pm",
+                rsvp_contact_note: "Te contactaremos a la brevedad para coordinar los detalles del pago de tu estancia y otros pormenores (si aplica).",
+                guestbook_text: "Déjanos un mensaje con buenos deseos para nuestra nueva etapa",
+                guestbook_message_placeholder: "Escribe aquí tus palabras...",
+                guestbook_signature_placeholder: "Con cariño... (ej: Familia Pérez)",
+                guestbook_submit: "Enviar mensaje con amor",
+                guestbook_success: "¡Gracias por tus bellas palabras!"
             },
             en: {
                 envelope_invitation: "Invitation",
@@ -1547,11 +1742,11 @@
                 account_name: "Account Name",
                 bank_clabe: "Bank / CLABE",
                 rsvp_title: "R.S.V.P.",
-                rsvp_deadline: "Please confirm before April 1st",
+                rsvp_deadline: "Please confirm before March 20th",
                 confirm_attendance: "Confirm Attendance",
                 guest_count_title: "How many guests?",
                 next_button: "Next",
-                guest_names_title: "Guest names",
+                guest_names_title: "Full names of guests",
                 submit_button: "Confirm",
                 rsvp_success: "Thank you!",
                 rsvp_success_text: "Your attendance has been recorded.",
@@ -1561,15 +1756,15 @@
                 rooms_label: "Number of rooms",
                 stay_option_label: "Select your stay",
                 stay_opt_1: "Night of the event (1 night)",
-                stay_opt_2: "1 day before and night of event (2 nights)",
-                extra_person_label: "Total extra people (+$750 each)",
-                breakfast_label: "Would you like breakfast at the hotel?",
-                breakfast_alert: "Breakfast cost is additional. Please contact the bride for more information.",
-                room_suggest: "The rooms are for 3 people, but it is possible to accommodate up to a maximum of 4 people. To add an extra person (4 people in total per room), an additional 750 must be paid.",
+                stay_opt_2: "1 day before and night of event (2 nights)<br>- Includes courtesy welcome cocktail",
+                extra_person_label: "Total extra people (+$750 each per day)",
+                breakfast_label: "Would you like breakfast at the hotel? (+$350 each per day)",
+                breakfast_alert: "The breakfast cost is $350 per person per day and will be added to the estimated total.",
+                room_suggest: "The rooms are for 3 people, but it is possible to accommodate up to a maximum of 4 people. To add an extra person (4 people in total per room), an additional $750 must be paid per day.",
                 hotel_guest_reminder: "Guests selected:",
                 modify_guest_count: "Modify number of guests",
                 extra_person_note: "(Maximum 1 per room)",
-                room_err_3: "The rooms are for 3 people, but it is possible to accommodate up to a maximum of 4 people. To add an extra person (4 people in total per room), an additional 750 must be paid.",
+                room_err_3: "The rooms are for 3 people, but it is possible to accommodate up to a maximum of 4 people. To add an extra person (4 people in total per room), an additional $750 must be paid per day.",
                 room_err_4: "Only 1 extra person can be added per room, reaching a maximum of 4 people per room. Please select more rooms.",
                 total_est_label: "Estimated Total:",
                 confirm_final: "Confirm & Send",
@@ -1595,7 +1790,13 @@
                 san_anton_desc: "<strong>San Antón Waterfall</strong><br>The Salto de San Antón Waterfall is a cascade of approximately 40 meters formed by volcanic rock, located in a natural canyon north of Cuernavaca and considered one of the city's most iconic natural attractions.",
                 tepoztlan_desc: "<strong>Tepoztlán</strong><br>Tepoztlán is a 'Magic Town' of pre-Hispanic origin located at the foot of the Tepozteco Hill (30 minutes away). It is famous for its pyramid dedicated to Ometochtli, its 16th-century former convent, and its traditional atmosphere; today it is one of Mexico's most visited Magic Towns.",
                 hacienda_desc: "<strong>Casa de Campo Boutique Hotel</strong>",
-                fiesta_inn_desc: "The venue where the event will take place has rooms available, details below:<br><br><strong>*Option 1: Book the night of the event (1 night)</strong><br>- Including taxes $2,874.00 MXN for a room for up to 3 people.<br>(Can be adjusted for a maximum of 4 people for an extra $750 pesos).<br><br><strong>*Option 2: Book 1 day before the event and the night of the event (2 nights)</strong><br>- Including taxes $5,748.00 MXN for a room for up to 3 people.<br>(Can be adjusted for a maximum of 4 people for an extra $750 pesos).<br>Includes a 1-hour welcome cocktail for staying guests on Friday.<br><br>Check-in: 3 pm | Check-out: 12 pm"
+                fiesta_inn_desc: "The venue where the event will take place has rooms available, details below:<br><br><strong>*Option 1: Book the night of the event (1 night)</strong><br>- Including taxes $2,874.00 MXN for a room for up to 3 people.<br>(Can be adjusted for a maximum of 4 people for an extra $750 pesos per day).<br><br><strong>*Option 2: Book 1 day before the event and the night of the event (2 nights)</strong><br>- Including taxes $5,748.00 MXN for a room for up to 3 people.<br>(Can be adjusted for a maximum of 4 people for an extra $750 pesos per day).<br>Includes a 1-hour welcome cocktail for staying guests on Friday.<br><br>Check-in: 3 pm | Check-out: 12 pm",
+                rsvp_contact_note: "We will contact you shortly to coordinate your stay payment details and other arrangements (if applicable).",
+                guestbook_text: "Leave us a message with your best wishes for our new stage",
+                guestbook_message_placeholder: "Write your words here...",
+                guestbook_signature_placeholder: "With love... (eg: Pérez Family)",
+                guestbook_submit: "Send message with love",
+                guestbook_success: "Thank you for your beautiful words!"
             }
         };
 
@@ -1650,7 +1851,13 @@
                 });
             }
 
-            // Refresh dynamic hotel calculations and messages
+            // Update Music Label as well
+            const musicLabel = document.getElementById('music-label');
+            if (musicLabel) {
+                const state = isMusicPlaying ? 'ON' : 'OFF';
+                musicLabel.innerText = currentLang === 'es' ? `Música: ${state}` : `Music: ${state}`;
+            }
+
             if (typeof calculateTotal === 'function' && !document.getElementById('step-3').classList.contains('hidden')) {
                 calculateTotal();
             }
@@ -1900,6 +2107,12 @@
                 <h3 class="font-display italic text-3xl text-charcoal" data-t="rsvp_success">¡Muchas gracias!</h3>
                 <p class="text-deep-grey/80 font-display text-lg" data-t="rsvp_success_text">Tu asistencia ha sido
                     registrada.</p>
+                <div class="px-8 pt-4 border-t border-bright-gold/10">
+                    <p class="text-[14px] leading-relaxed text-charcoal/60 italic" data-t="rsvp_contact_note">
+                        Te contactaremos a la brevedad para coordinar los detalles del pago de tu estancia y otros
+                        pormenores.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -1937,7 +2150,7 @@
             try {
                 // To fetch these limits, the Google Apps Script needs a doGet(e) method returning JSON.
                 // If it fails, we assume 0 used slots for now.
-                const resp = await fetch('https://script.google.com/macros/s/AKfycby6-ZNO6lgo3demqp9PZYq0P0GuzAbihpbqoFWh6y1sGXpWUaY-zpHjDNbFYJbAaUR3lw/exec?action=getStatus');
+                const resp = await fetch('https://script.google.com/macros/s/AKfycbw_dBFq4nGIMGqp0za2Hf35HraI4f6NELamDtPEKF516IrnoVOU0psoQuTxOvL76AJDiw/exec?action=getStatus');
                 if (!resp.ok) throw new Error("Status API not available");
                 const data = await resp.json();
                 if (data) {
@@ -2033,8 +2246,12 @@
                 const input = document.createElement('input');
                 input.type = 'text';
                 input.className = 'w-full bg-transparent border-b border-bright-gold/20 focus:border-bright-gold focus:ring-0 py-4 font-display text-lg placeholder:italic placeholder:text-deep-grey/20';
-                input.placeholder = currentLang === 'es' ? `Nombre Invitado ${i}` : `Guest ${i} Name`;
+                input.placeholder = currentLang === 'es' ? `Nombre Completo Invitado ${i}` : `Guest ${i} Full Name`;
                 input.required = true;
+                // Only allow letters and spaces
+                input.oninput = function () {
+                    this.value = this.value.replace(/[^a-zA-ZÀ-ÿ\s]/g, '');
+                };
                 container.appendChild(input);
             }
         });
@@ -2042,11 +2259,30 @@
         // Step 2 to Step 3
         document.getElementById('btn-to-hotel').addEventListener('click', () => {
             const inputs = document.getElementById('guest-names-container').querySelectorAll('input');
-            let allFilled = true;
-            inputs.forEach(input => { if (!input.value.trim()) allFilled = false; });
+            let allValid = true;
+            let errMsg = '';
 
-            if (!allFilled) {
-                alert(currentLang === 'es' ? 'Por favor completa todos los nombres' : 'Please fill in all names');
+            inputs.forEach(input => {
+                const val = input.value.trim();
+                // Check if empty
+                if (!val) {
+                    allValid = false;
+                    errMsg = currentLang === 'es' ? 'Por favor completa todos los nombres' : 'Please fill in all names';
+                }
+                // Check length (at least 3 chars)
+                else if (val.length < 3) {
+                    allValid = false;
+                    errMsg = currentLang === 'es' ? 'Por favor ingresa nombres reales (mínimo 3 letras)' : 'Please enter real names (min 3 letters)';
+                }
+                // Double check numbers just in case
+                else if (/\d/.test(val)) {
+                    allValid = false;
+                    errMsg = currentLang === 'es' ? 'Los nombres no pueden contener números' : 'Names cannot contain numbers';
+                }
+            });
+
+            if (!allValid) {
+                alert(errMsg);
                 return;
             }
 
@@ -2147,7 +2383,8 @@
                 submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
             }
 
-            const total = (basePrice * rooms) + (extraCount * 750);
+            const brkCost = breakfastCheck.checked ? (guestCount * 350 * selectedOpt) : 0;
+            const total = (basePrice * rooms) + (extraCount * 750 * selectedOpt) + brkCost;
 
             // Build breakdown list
             const breakdown = document.getElementById('price-breakdown');
@@ -2158,7 +2395,11 @@
 
             if (extraCount > 0) {
                 const extraTxt = extraCount > 1 ? (currentLang === 'es' ? 'personas extras' : 'extra people') : (currentLang === 'es' ? 'persona extra' : 'extra person');
-                breakdownHTML += `<div>+ ${extraCount} ${extraTxt} (${new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(extraCount * 750)})</div>`;
+                breakdownHTML += `<div>+ ${extraCount} ${extraTxt} (${new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(extraCount * 750 * selectedOpt)})</div>`;
+            }
+            if (breakfastCheck.checked) {
+                const breakfastTxt = currentLang === 'es' ? 'Desayunos' : 'Breakfasts';
+                breakdownHTML += `<div>+ ${breakfastTxt} (${new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(brkCost)})</div>`;
             }
             breakdown.innerHTML = breakdownHTML;
 
@@ -2214,14 +2455,14 @@
                 formData.append('Estimated Total', document.getElementById('total-price-display').innerText);
             }
 
-            fetch('https://script.google.com/macros/s/AKfycby6-ZNO6lgo3demqp9PZYq0P0GuzAbihpbqoFWh6y1sGXpWUaY-zpHjDNbFYJbAaUR3lw/exec', {
+            fetch('https://script.google.com/macros/s/AKfycbw_dBFq4nGIMGqp0za2Hf35HraI4f6NELamDtPEKF516IrnoVOU0psoQuTxOvL76AJDiw/exec', {
                 method: 'POST',
                 mode: 'no-cors',
                 body: formData
             }).finally(() => {
                 document.getElementById('step-3').classList.add('hidden');
                 document.getElementById('step-4').classList.remove('hidden');
-                setTimeout(closeModal, 4000);
+                setTimeout(closeModal, 8000);
             });
         });
 
