@@ -1434,6 +1434,33 @@
             <div class="h-[0.5px] w-12 bg-bright-gold/60"></div>
         </div>
 
+        <!-- Playlist Section -->
+        <section class="px-10 py-20 text-center">
+            <h3 class="fine-script text-5xl mb-12 text-charcoal" data-t="playlist_title">¿Nos ayudas con la playlist?
+            </h3>
+
+            <a href="https://www.youtube.com/playlist?list=PL4fGSI1pDJn6jWnvvToSUEfR79WJp8J2A" target="_blank"
+                class="inline-block bg-[#ae916c] text-white font-sans text-[11px] uppercase tracking-[0.4em] px-8 py-5 mb-12 shadow-md hover:bg-[#967b58] transition-all hover:-translate-y-1 active:scale-95">
+                <span data-t="playlist_button">AGREGAR UNA CANCIÓN</span> +
+            </a>
+
+            <!-- Video Embed Container -->
+            <div class="max-w-[400px] mx-auto shadow-2xl rounded-sm overflow-hidden border border-bright-gold/20">
+                <div class="aspect-video bg-charcoal/5">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/fWNaR-rxAic" title="Wedding Music"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <div class="flex items-center justify-center gap-3 py-12">
+            <div class="h-[0.5px] w-12 bg-bright-gold/60"></div>
+            <div class="w-1.5 h-1.5 rotate-45 border border-bright-gold/60"></div>
+            <div class="h-[0.5px] w-12 bg-bright-gold/60"></div>
+        </div>
+
         <!-- Guest Book / Special Words Section -->
         <section class="px-10 pt-20 pb-40 text-center bg-ivory/50">
             <div class="max-w-[320px] mx-auto space-y-8">
@@ -1753,7 +1780,13 @@
                 guestbook_message_placeholder: "Escribe aquí tus palabras...",
                 guestbook_signature_placeholder: "Con cariño... (ej: Juan Pérez)",
                 guestbook_submit: "Enviar mensaje con amor",
-                guestbook_success: "¡Gracias por tus bellas palabras!"
+                guestbook_success: "¡Gracias por tus bellas palabras!",
+                playlist_title: "¿Nos ayudas con la playlist?",
+                playlist_button: "AGREGAR UNA CANCIÓN",
+                song_label: "Nombre de la canción",
+                artist_label: "Artista / Banda",
+                playlist_submit: "Enviar sugerencia",
+                playlist_success: "¡Gracias! La canción se ha agregado a nuestras ideas."
             },
             en: {
                 envelope_invitation: "Invitation",
@@ -1855,7 +1888,13 @@
                 guestbook_message_placeholder: "Write your words here...",
                 guestbook_signature_placeholder: "With love... (eg: John Smith)",
                 guestbook_submit: "Send message with love",
-                guestbook_success: "Thank you for your beautiful words!"
+                guestbook_success: "Thank you for your beautiful words!",
+                playlist_title: "Help us with the playlist?",
+                playlist_button: "ADD A SONG",
+                song_label: "Song Name",
+                artist_label: "Artist / Band",
+                playlist_submit: "Send suggestion",
+                playlist_success: "Thank you! The song has been added to our ideas."
             }
         };
 
